@@ -1,0 +1,31 @@
+using UnityEngine;
+using UnityEngine.Serialization;
+
+namespace chunk
+{
+    public class DestroyWithChance : MonoBehaviour
+    {
+        [FormerlySerializedAs("ChanceOfStaying")] [Range(0, 1)]
+        public float chanceOfStaying = 0.5f;
+
+        private Score _score;
+
+        private void Start()
+        {
+            _score = Score.Instance;
+            if (gameObject.CompareTag("obstacle")) 
+            {
+                chanceOfStaying = _score.chanceOfActivateObstacle;
+                if (!(Random.value > chanceOfStaying)) return;
+                try
+                {
+                    var actObst = transform.GetComponent<ActivateObstacle>();
+                    actObst.enabled = false;
+                }
+                catch
+                {
+                    throw new System.Exception($"obstacle dont have [activateObstacle] script on {gameObject.name}");
+                }
+            }else if (Random.value > chanceOfStaying) Destroy(gameObject); }
+    }
+}
