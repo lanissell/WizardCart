@@ -12,30 +12,23 @@ public class StikInTarget : MonoBehaviour
     private Rigidbody _rb;
     private SpeedLimit _speedLimit;
 
-    private IEnumerator Start()
+    private void Start()
     {
         _xrGrab = GetComponent<XRGrabInteractable>();
         _rb = GetComponent<Rigidbody>();
         _speedLimit = GetComponent<SpeedLimit>();
-        //_rb.isKinematic = true;
-        yield return new WaitForSeconds(2);
-        //_rb.isKinematic = false;
-        
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.GetComponent<StikedObject>() == null) return;
         if (collision.contacts.Any(c => c.thisCollider != sharp)) return;
-        print(_rb.velocity.magnitude);
-        transform.rotation = Quaternion.FromToRotation(transform.position, collision.transform.position) * Quaternion.Euler(-90,0,0);
+        var colTransform = collision.transform;
+        transform.rotation = Quaternion.FromToRotation(transform.position, colTransform.position) * Quaternion.Euler(-90,0,0);
         transform.position = collision.contacts[0].point;
-        transform.parent = collision.transform;
-        var sharpLength = _rb.velocity.magnitude;
-        if (sharpLength < 8) sharpLength = 8;
-        transform.Translate(sharpDirection.up / sharpLength);
+        transform.parent = colTransform;
         if (_xrGrab != null)Destroy(_xrGrab);
         if (_speedLimit != null) Destroy(_speedLimit);
-        if (_rb != null) Destroy(_rb);
+        if (_rb != null) _rb.isKinematic = true;
     }
 }

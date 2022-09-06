@@ -11,7 +11,7 @@ TagManager:
   - enemyParent
   - sword
   - ground
-  - sharp
+  - blade
   layers:
   - Default
   - TransparentFX

@@ -69,7 +69,7 @@ ModelImporter:
       - time: 0.38559997
         functionName: ThrowProjectile
         data: 
-        objectReferenceParameter: {fileID: 11500000, guid: e3995f5e663c77742984df5164a6738a,
+        objectReferenceParameter: {fileID: 11500000, guid: fabde15dbeea9e04daba4f56767798bb,
           type: 3}
         floatParameter: 0
         intParameter: 0

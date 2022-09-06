@@ -2,9 +2,9 @@ using chunk;
 using TMPro;
 using UnityEngine;
 
-public class Score : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
-    public static Score Instance { get; private set; }
+    public static GameManager Instance { get; private set; }
     public float totalDistance;
     [Header("Value from distance")]
     [SerializeField]

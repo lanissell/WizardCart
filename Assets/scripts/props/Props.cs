@@ -25,12 +25,10 @@ public class Props : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!isGrab)
+        if (isGrab) return;
+        if (other.CompareTag("ground"))
         {
-            if (other.CompareTag("ground"))
-            {
-                transform.parent = _chunkPlacer.transform;
-            }    
+            transform.parent = _chunkPlacer.transform;
         }
     }
 }

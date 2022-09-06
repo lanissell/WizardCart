@@ -37,7 +37,7 @@ namespace enemy.wizzard
             _fireBallTransform.isTrigger = false;
         }
 
-        public override void Throw(Transform projectileTarget, float angleInDegrees)
+        public override void Throw(Transform projectileTarget, float angleInDegrees, float speed)
         {
             _ballRigidbody.isKinematic = false;
             _target = projectileTarget.position + new Vector3(0, 2, 0);

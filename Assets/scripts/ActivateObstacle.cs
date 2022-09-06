@@ -3,7 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class ActivateObstacle : MonoBehaviour
 {
-    private Score _score;
+    private GameManager _score;
     private float _distanceToActivate;
     private float _distance;
     private Transform _player;
@@ -11,7 +11,7 @@ public class ActivateObstacle : MonoBehaviour
     
     private void Start()
     {
-        _score = Score.Instance;
+        _score = GameManager.Instance;
         _player = GameObject.FindGameObjectWithTag("Player").transform;
         _animator = GetComponent<Animator>();
         _distanceToActivate = _score.distanceToActivateObstacle;
