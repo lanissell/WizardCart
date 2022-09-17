@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace enemy.wizzard
+namespace enemy.wizard
 {
     public class FireBall : Projectile
     {
@@ -35,12 +35,13 @@ namespace enemy.wizzard
         {
             yield return new WaitForSeconds(fireBallCreateDelay);
             _fireBallTransform.isTrigger = false;
-        }
+        } 
 
         public override void Throw(Transform projectileTarget, float angleInDegrees, float speed)
         {
+            transform.parent = null;
             _ballRigidbody.isKinematic = false;
-            _target = projectileTarget.position + new Vector3(0, 2, 0);
+            _target = projectileTarget.position;
             //speed calculation for ballistic flight to target
             var distance = Vector3.Distance(_target, transform.position);
             var angle = angleInDegrees * Mathf.PI / 180;
@@ -52,12 +53,18 @@ namespace enemy.wizzard
                                           (transform.up * (v * Mathf.Sin(angle)));
             StartCoroutine(ActivateFireBallCollider());
         }
+        
 
         private void OnCollisionEnter(Collision collision)
         {
-            if (collision.collider.tag.Equals("fireWizard")) return;
+            if (collision.collider.CompareTag("fireWizard")) return;
             Instantiate(explosion, collision.transform.position, Quaternion.identity);
             Destroy(gameObject);
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag("MainCamera")) GlobalEventManager.SendOnPlayerHit();
         }
     }
 }

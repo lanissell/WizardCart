@@ -193,6 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83dd4967f2a99174ba6d59c89c2fee1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minDistanceToActivate: 25
 --- !u!1 &2803541568713331628
 GameObject:
   m_ObjectHideFlags: 0
@@ -532,6 +533,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83dd4967f2a99174ba6d59c89c2fee1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minDistanceToActivate: 25
 --- !u!1 &4205685833739648058
 GameObject:
   m_ObjectHideFlags: 0
@@ -612,6 +614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83dd4967f2a99174ba6d59c89c2fee1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minDistanceToActivate: 25
 --- !u!1 &5306178650498553096
 GameObject:
   m_ObjectHideFlags: 0
@@ -784,6 +787,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83dd4967f2a99174ba6d59c89c2fee1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minDistanceToActivate: 25
 --- !u!1 &6002008118346964557
 GameObject:
   m_ObjectHideFlags: 0

@@ -205,7 +205,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4442546182707413218}
-  - component: {fileID: 8363133008247618676}
   - component: {fileID: 3472630282533277154}
   - component: {fileID: 2147405408514356051}
   m_Layer: 0
@@ -233,19 +232,6 @@ Transform:
   m_Father: {fileID: 3363886755284667142}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8363133008247618676
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1328239127124989941}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5292f139e88135b4492f4327485a02c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chanceOfStaying: 0.5
 --- !u!114 &3472630282533277154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,8 +257,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c53d5f22a61264987c2c2e5a7fe138, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefabs:
-  - {fileID: 4004414879622688772, guid: 495fb4aa1cefb304696063de7bcb37fb, type: 3}
 --- !u!1 &1853037305515280291
 GameObject:
   m_ObjectHideFlags: 0

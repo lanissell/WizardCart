@@ -4,11 +4,17 @@ namespace enemy
 {
     public class EnemySpawner : MonoBehaviour
     {
-        [SerializeField]
+        private GameManager _gameManager;
         private GameObject[] enemyPrefabs;
         private void Start()
         {
-            Instantiate(enemyPrefabs[Random.Range(0,enemyPrefabs.Length)], transform.GetChild(0));
+            _gameManager = GameManager.Instance;
+            if (!_gameManager.CheckEnemySpawnDelay()) return;
+            enemyPrefabs = _gameManager.EnemyPrefabs;
+            var enemyParent = _gameManager.EnemyParent;
+            var position = transform.GetChild(0).position;
+            var rotation = transform.GetChild(0).rotation;
+            Instantiate(enemyPrefabs[Random.Range(0,enemyPrefabs.Length)], position,rotation,enemyParent);
         }
     }
 }

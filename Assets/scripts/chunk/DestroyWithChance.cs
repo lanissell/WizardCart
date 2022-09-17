@@ -8,14 +8,14 @@ namespace chunk
         [FormerlySerializedAs("ChanceOfStaying")] [Range(0, 1)]
         public float chanceOfStaying = 0.5f;
 
-        private GameManager _score;
+        private GameManager _gameManager;
 
         private void Start()
         {
-            _score = GameManager.Instance;
+            _gameManager = GameManager.Instance;
             if (gameObject.CompareTag("obstacle")) 
             {
-                chanceOfStaying = _score.chanceOfActivateObstacle;
+                chanceOfStaying = _gameManager.ChanceOfActivateObstacle;
                 if (!(Random.value > chanceOfStaying)) return;
                 try
                 {

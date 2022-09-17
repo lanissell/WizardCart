@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace enemy
 {
@@ -36,7 +35,7 @@ namespace enemy
             attackDist = Random.Range(attackDist / 1.5f, attackDist);
         }
 
-        public void StartAttack(float dist, Transform target)
+        public void StartAttackCoroutine(float dist, Transform target)
         {
             if (_isAttack) return;
             if (dist > attackDist) return;
@@ -54,11 +53,8 @@ namespace enemy
             _isAttack = false;
         }
 
-        private void ThrowProjectile()
+        private void ThrowProjectile() //used in animation event
         {
-            var projectileTransform = _projectileObject.transform;
-            projectileTransform.parent = null;
-            projectileTransform.position = projectileSpawnPoint.position;
             _projectileObject.Throw(_target, projectileAngle, projectileSpeed);
         }
     }

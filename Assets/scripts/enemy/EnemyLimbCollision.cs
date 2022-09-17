@@ -4,13 +4,14 @@ using UnityEngine.Serialization;
 
 namespace enemy
 {
-    public class EnemyCollisionWithWeapon : MonoBehaviour
+    [RequireComponent(typeof(StikedObject))]
+    public class EnemyLimbCollision : MonoBehaviour
     {
-        public ActivateRagdoll activateRagdoll;
+        public Ragdoll activateRagdoll;
         private void OnTriggerEnter(Collider other)
         {
             if (!other.CompareTag("blade")) return;
-            activateRagdoll.childCollision.Invoke();
+            activateRagdoll.SendOnChildCollision();
         }
     }
 }

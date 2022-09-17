@@ -1,16 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 namespace chunk
 {
     public class ChunksPlacer : MonoBehaviour
     {
         public static ChunksPlacer Instance { get; private set; }
-        [SerializeField]
-        private float generationDistance;
-        [SerializeField]
-        private Transform player;
+        public float GenerationDistance;
+        private Transform _player;
         [Header("Chunks")]
         [SerializeField]
         private Chunk firstChunk;
@@ -37,13 +38,14 @@ namespace chunk
                 {0, forestChunkPrefabs},
             };
             _chunksForSpawn = _chunks[0];
+            if (Camera.main != null) _player = Camera.main.transform;
             StartCoroutine(ModGenerationDist(3));
 
         }
 
         private void Update()
         {
-            if (Vector3.Distance(_spawnedChunks[^1].end.position, player.position) < generationDistance)
+            if (Vector3.Distance(_spawnedChunks[^1].end.position, _player.position) < GenerationDistance)
             {
                 SpawnChunk();
             }
@@ -56,15 +58,15 @@ namespace chunk
             newChunk.rotationPoint.rotation = new Quaternion(0, 180 * Random.Range(0, 2), 0, 0);
             newChunk.transform.position = _spawnedChunks[^1].end.position - newChunk.begin.localPosition;
             _spawnedChunks.Add(newChunk);
-            if (!(Vector3.Distance(_spawnedChunks[0].end.position, player.position) > generationDistance)) return;
+            if (!(Vector3.Distance(_spawnedChunks[0].end.position, _player.position) > GenerationDistance)) return;
             Destroy(_spawnedChunks[0].gameObject);
             _spawnedChunks.RemoveAt(0);
         }
         private IEnumerator ModGenerationDist(float mod)
         {
-            generationDistance /= mod;
+            GenerationDistance /= mod;
             yield return new WaitForSeconds(1);
-            generationDistance *= mod;
+            GenerationDistance *= mod;
         }
 
         private IEnumerator ChangeChunkForSpawn()

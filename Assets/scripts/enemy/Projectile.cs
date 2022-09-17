@@ -6,8 +6,7 @@ namespace enemy
     {
         public virtual void Throw(Transform target, float angle, float speed)
         {
-
+            
         }
-
     }
 }

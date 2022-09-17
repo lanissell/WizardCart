@@ -3,15 +3,15 @@ using UnityEngine;
 
 namespace enemy
 {
-    public class ActivateRagdoll : MonoBehaviour
+    public class Ragdoll : MonoBehaviour
     {
-        public Action childCollision;
+        public event Action OnChildCollision;
         public event Action OnRagdollActive;
         private Animator _animator;
         [SerializeField]
         private Rigidbody[] rigidbodies;
         [SerializeField] 
-        private EnemyCollisionWithWeapon[] enemyCollisions;
+        private EnemyLimbCollision[] enemyCollisions;
         
 
         private void Awake()
@@ -23,10 +23,12 @@ namespace enemy
         private void Start()
         {
             _animator = GetComponent<Animator>();
-            childCollision += ActivateRagdollMethod;
+            OnChildCollision += ActivateRagdoll;
         }
 
-        private void ActivateRagdollMethod()
+        public void SendOnChildCollision() => OnChildCollision?.Invoke();
+
+        private void ActivateRagdoll()
         {
             _animator.enabled = false;
             OnRagdollActive?.Invoke();

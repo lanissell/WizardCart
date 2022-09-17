@@ -1,34 +1,39 @@
-using System.Collections;
-using System.Collections.Generic;
 using chunk;
 using UnityEngine;
-[RequireComponent (typeof(Rigidbody))]
-public class Props : MonoBehaviour
+
+namespace props
 {
-    private GameObject _chunkPlacer;
-    public bool isGrab = false;
-    private void Start()
+    [RequireComponent (typeof(Rigidbody))]
+    public class Props : MonoBehaviour
     {
-        _chunkPlacer = ChunksPlacer.Instance.gameObject;
-    }
-
-    public void SetGrabTrue()
-    {
-        isGrab = true;
-    }
-
-    public void SetGrabFalse()
-    {
-        isGrab = false;
-        transform.parent = null;
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (isGrab) return;
-        if (other.CompareTag("ground"))
+        public bool isGrab = false;
+        private Rigidbody _rb;
+        private GameObject _chunkPlacer;
+        private void Start()
         {
-            transform.parent = _chunkPlacer.transform;
+            _chunkPlacer = ChunksPlacer.Instance.gameObject;
+            _rb = GetComponent<Rigidbody>();
+        }
+
+        public void SetGrabTrue()
+        {
+            isGrab = true;
+            _rb.isKinematic = false;
+        }
+
+        public void SetGrabFalse()
+        {
+            isGrab = false;
+            transform.parent = null;
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (isGrab) return;
+            if (other.CompareTag("ground"))
+            {
+                transform.parent = _chunkPlacer.transform;
+            }
         }
     }
 }

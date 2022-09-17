@@ -12,6 +12,7 @@ TagManager:
   - sword
   - ground
   - blade
+  - Shield
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - PostProcessing
   - Water
   - UI
-  - 
+  - Ignore Obstacle
   - 
   - 
   - 

@@ -1,24 +1,26 @@
 using chunk;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-    public float totalDistance;
+    public GameObject[] EnemyPrefabs;
+    public Transform EnemyParent; 
+    [SerializeField]
+    private float enemySpawnDelay;
+    private float _spawnStartTime;
+    private float _totalDistance;
     [Header("Value from distance")]
     [SerializeField]
     private AnimationCurve speedFromDistance;
     [SerializeField]
-    private AnimationCurve chanceOfStayFromDistance;
-    public float chanceOfActivateObstacle;
+    private AnimationCurve chanceOfActivateObstacleFromDistance;
+    [HideInInspector]
+    public float ChanceOfActivateObstacle;
     [Header("Obstacle activate distance")]
-    [SerializeField]
-    private float maxDistanceToActivateObstacle;
-    [SerializeField]
-    private float minDistanceToActivateObstacle;
     private ChunksPlacer _chunksPlacer;
-    public float distanceToActivateObstacle => Random.Range(minDistanceToActivateObstacle, maxDistanceToActivateObstacle);
 
     [SerializeField]
     private TextMeshProUGUI scoreText;
@@ -28,15 +30,24 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        _chunksPlacer = FindObjectOfType<ChunksPlacer>();
+        _spawnStartTime = Time.time - enemySpawnDelay;
+        _chunksPlacer = ChunksPlacer.Instance;
     }
 
     private void Update()
     {
-        totalDistance = -_chunksPlacer.transform.position.z;
-        chanceOfActivateObstacle = chanceOfStayFromDistance.Evaluate(totalDistance);
-        _chunksPlacer.moveSpeed = speedFromDistance.Evaluate(totalDistance);
-        scoreText.text = $"{Mathf.RoundToInt(totalDistance)}";
+        _totalDistance = -_chunksPlacer.transform.position.z;
+        ChanceOfActivateObstacle = chanceOfActivateObstacleFromDistance.Evaluate(_totalDistance);
+        _chunksPlacer.moveSpeed = speedFromDistance.Evaluate(_totalDistance);
+        scoreText.text = $"{Mathf.RoundToInt(_totalDistance)}";
     }
+
+    public bool CheckEnemySpawnDelay()
+    {
+        if (!(Time.time - _spawnStartTime >= enemySpawnDelay)) return false;
+        _spawnStartTime = Time.time;
+        return true;
+    }
+
 
 }
