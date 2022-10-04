@@ -1,18 +1,18 @@
 using UnityEngine;
-
-public class SelectRandom : MonoBehaviour
+namespace chunk
 {
-    [SerializeField]
-    private int countToLeave = 1;
-    private GameManager _score;
-
-    private void Start()
+    public class SelectRandom : MonoBehaviour
     {
-        _score = GameManager.Instance;
-        while (transform.childCount > countToLeave)
+        [SerializeField]
+        private int _countToLeave = 1;
+
+        private void Start()
         {
-            Transform childToDestroy = transform.GetChild(Random.Range(0, transform.childCount));
-            DestroyImmediate(childToDestroy.gameObject);
+            while (transform.childCount > _countToLeave)
+            {
+                Transform childToDestroy = transform.GetChild(Random.Range(0, transform.childCount));
+                DestroyImmediate(childToDestroy.gameObject);
+            }
         }
     }
 }

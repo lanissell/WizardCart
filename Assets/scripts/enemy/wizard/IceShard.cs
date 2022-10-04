@@ -2,26 +2,22 @@ using UnityEngine;
 
 namespace enemy.wizard
 {
-    public class IceShard : Projectile
+    public class IceShard : MonoBehaviour, IProjectile
     {
         private ParticleSystem _particleSystem;
-        [SerializeField] private ParticleSystem chargeEffect;
+        [SerializeField] 
+        private ParticleSystem _chargeEffect;
         private void Start()
         {
             _particleSystem = GetComponent<ParticleSystem>();
-            Destroy(Instantiate(chargeEffect,transform), 3f);
+            Destroy(Instantiate(_chargeEffect,transform), 3f);
         }
         
-        public override void Throw(Transform target, float angle, float speed)
+        public void Throw(Vector3 targetPosition)
         {
             _particleSystem.Play();
             transform.parent = null;
         }
-
-        private void OnParticleCollision(GameObject other)
-        {
-            if (other.tag.Equals("Player"))
-                GlobalEventManager.SendOnPlayerHit();
-        }
+        
     }
 }

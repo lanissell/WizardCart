@@ -3787,7 +3787,7 @@ ParticleSystem:
     radiusScale: 0.1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 2147483647
+      m_Bits: 1
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 1
@@ -4826,7 +4826,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49a3cde6f50c7054ebc3fa2cb6ee0ca3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chargeEffect: {fileID: 5907293762045373274, guid: 3877ba8280231d2499b276fc06b4c9bf,
+  _chargeEffect: {fileID: 5907293762045373274, guid: 3877ba8280231d2499b276fc06b4c9bf,
     type: 3}
 --- !u!1001 &5618664981248277849
 PrefabInstance:

@@ -1,64 +1,66 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace enemy.wizard
 {
-    public class FireBall : Projectile
+    [RequireComponent(typeof(Rigidbody))]
+    public class FireBall : MonoBehaviour, IProjectile
     {
         [SerializeField]
-        private GameObject fireBallSphere;
-        private Collider _fireBallTransform;
+        private float _createDelay;
         [SerializeField]
-        private GameObject explosion;
+        private GameObject _sphere;
+        private Collider _collider;
         [SerializeField]
-        private float fireBallCreateDelay;
-        private Rigidbody _ballRigidbody;
-        private Vector3 _target;
+        private GameObject _explosion;
+        [FormerlySerializedAs("angleInDegrees")] [SerializeField]
+        private float _angleInDegrees;
+        private Rigidbody _rb;
         private float _g;
         private void Start()
         {
             _g = -Physics.gravity.y;
-            _target = Vector3.zero;
-            _ballRigidbody = GetComponent<Rigidbody>();
-            _fireBallTransform = fireBallSphere.GetComponent<Collider>();
-            _fireBallTransform.isTrigger = true;
-            fireBallSphere.SetActive(false);
-            StartCoroutine(ActivateFireBall());
+            _rb = GetComponent<Rigidbody>();
+            _collider = GetComponent<Collider>();
+            StartCoroutine(ActivateFireBallSphere());
         }
 
-        private IEnumerator ActivateFireBall()
+        private IEnumerator ActivateFireBallSphere()
         {
-            yield return new WaitForSeconds(fireBallCreateDelay);
-            fireBallSphere.SetActive(true);
+            yield return new WaitForSeconds(_createDelay);
+            _sphere.SetActive(true);
         }
-        private IEnumerator ActivateFireBallCollider()
-        {
-            yield return new WaitForSeconds(fireBallCreateDelay);
-            _fireBallTransform.isTrigger = false;
-        } 
 
-        public override void Throw(Transform projectileTarget, float angleInDegrees, float speed)
+        public void Throw(Vector3 targetPosition)
         {
             transform.parent = null;
-            _ballRigidbody.isKinematic = false;
-            _target = projectileTarget.position;
-            //speed calculation for ballistic flight to target
-            var distance = Vector3.Distance(_target, transform.position);
-            var angle = angleInDegrees * Mathf.PI / 180;
-            var v2 = distance * _g / Mathf.Sin(2 * angle);
-            var v = Mathf.Sqrt(Mathf.Abs(v2));
-            transform.LookAt(_target);
+            _rb.isKinematic = false;
+            float angle = _angleInDegrees * Mathf.PI / 180;
+            float v = CalculateThrowSpeedForBallisticMove(angle, targetPosition);
+            transform.LookAt(targetPosition);
             if (transform != null)
-                _ballRigidbody.velocity = transform.forward * v * Mathf.Cos(angle) +
-                                          (transform.up * (v * Mathf.Sin(angle)));
-            StartCoroutine(ActivateFireBallCollider());
+                _rb.velocity = transform.forward * v * Mathf.Cos(angle) +
+                                          transform.up * v * Mathf.Sin(angle);
+            StartCoroutine(ActivateCollider());
         }
-        
+
+        private float CalculateThrowSpeedForBallisticMove(float angle, Vector3 targetPosition)
+        {
+            float distance = Vector3.Distance(targetPosition, transform.position);
+            float v2 = distance * _g / Mathf.Sin(2 * angle);
+            float v = Mathf.Sqrt(Mathf.Abs(v2));
+            return v;
+        }
+        private IEnumerator ActivateCollider()
+        {
+            yield return new WaitForSeconds(_createDelay);
+            _collider.isTrigger = false;
+        }
 
         private void OnCollisionEnter(Collision collision)
         {
-            if (collision.collider.CompareTag("fireWizard")) return;
-            Instantiate(explosion, collision.transform.position, Quaternion.identity);
+            Instantiate(_explosion, collision.transform);
             Destroy(gameObject);
         }
 

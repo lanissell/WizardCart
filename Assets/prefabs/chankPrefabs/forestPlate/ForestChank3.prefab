@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1926bae7274b2624f9ce6553d313ff6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countToLeave: 1
+  _countToLeave: 1
 --- !u!1 &503632492995424273
 GameObject:
   m_ObjectHideFlags: 0
@@ -133,9 +133,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f4039777dc344945b1f2417f0ca0bef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  begin: {fileID: 6531897906799706940}
-  end: {fileID: 3854967494363904223}
-  rotationPoint: {fileID: 9210486635556451084}
+  Begin: {fileID: 6531897906799706940}
+  End: {fileID: 3854967494363904223}
+  RotationPoint: {fileID: 9210486635556451084}
 --- !u!1 &1610407498078248371
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,7 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1926bae7274b2624f9ce6553d313ff6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countToLeave: 1
+  _countToLeave: 1
 --- !u!1 &2304737464583400737
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,7 +285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1926bae7274b2624f9ce6553d313ff6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countToLeave: 1
+  _countToLeave: 1
 --- !u!1 &2482296032853788458
 GameObject:
   m_ObjectHideFlags: 0
@@ -334,7 +334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1926bae7274b2624f9ce6553d313ff6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countToLeave: 1
+  _countToLeave: 1
 --- !u!114 &4224561787596683829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -526,7 +526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1926bae7274b2624f9ce6553d313ff6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countToLeave: 1
+  _countToLeave: 1
 --- !u!1 &4624067583575746500
 GameObject:
   m_ObjectHideFlags: 0
@@ -727,7 +727,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5292f139e88135b4492f4327485a02c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chanceOfStaying: 0.6
+  ChanceOfStaying: 0.5
 --- !u!114 &2840490027292264179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -740,7 +740,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1926bae7274b2624f9ce6553d313ff6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countToLeave: 2
+  _countToLeave: 1
 --- !u!1 &7735574266363387496
 GameObject:
   m_ObjectHideFlags: 0
@@ -2500,7 +2500,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5292f139e88135b4492f4327485a02c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chanceOfStaying: 0.2
+  ChanceOfStaying: 0.5
 --- !u!4 &2292751918370787175 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 813670707361450773, guid: faf112134f631a14ba1577bc63a062d3,
@@ -9206,7 +9206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5292f139e88135b4492f4327485a02c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chanceOfStaying: 0.3
+  ChanceOfStaying: 0.5
 --- !u!4 &2475333044349480846 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8051546897186745787, guid: 05cbf1464d9c545499f52e5a7ccb1704,
@@ -13188,7 +13188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5292f139e88135b4492f4327485a02c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chanceOfStaying: 0.2
+  ChanceOfStaying: 0.5
 --- !u!4 &8700104409216817090 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1552838915241202880, guid: 2c3535be9bd7c3f4f87e52cb0c7c7b0b,

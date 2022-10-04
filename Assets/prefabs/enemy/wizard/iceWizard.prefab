@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3065665862903652546}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.56299996, y: -0.646, z: -1.492449}
+  m_LocalPosition: {x: 0.56299996, y: -0.646, z: -1.422}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1926bae7274b2624f9ce6553d313ff6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countToLeave: 1
+  _countToLeave: 1
 --- !u!1 &3065665863756550665
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,6 +218,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PP_Rock_01
       objectReference: {fileID: 0}
+    - target: {fileID: 6081043224253025367, guid: 59350465cb7160d4da1f92d4da1a66f9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6858951701304809197, guid: 59350465cb7160d4da1f92d4da1a66f9,
         type: 3}
       propertyPath: m_RootOrder
@@ -226,12 +231,12 @@ PrefabInstance:
     - target: {fileID: 6858951701304809197, guid: 59350465cb7160d4da1f92d4da1a66f9,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.34171236
+      value: 0.42690125
       objectReference: {fileID: 0}
     - target: {fileID: 6858951701304809197, guid: 59350465cb7160d4da1f92d4da1a66f9,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.7635
+      value: 0.86573267
       objectReference: {fileID: 0}
     - target: {fileID: 6858951701304809197, guid: 59350465cb7160d4da1f92d4da1a66f9,
         type: 3}
@@ -241,12 +246,12 @@ PrefabInstance:
     - target: {fileID: 6858951701304809197, guid: 59350465cb7160d4da1f92d4da1a66f9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.232
+      value: 0.049
       objectReference: {fileID: 0}
     - target: {fileID: 6858951701304809197, guid: 59350465cb7160d4da1f92d4da1a66f9,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.594
+      value: 1.572
       objectReference: {fileID: 0}
     - target: {fileID: 6858951701304809197, guid: 59350465cb7160d4da1f92d4da1a66f9,
         type: 3}
@@ -471,7 +476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23e5163ddf6172d4bada6b6f03e9a051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateRagdoll: {fileID: 0}
+  ActivateRagdoll: {fileID: 0}
 --- !u!1 &586730988313817258 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2499236547286767147, guid: e7ea9518a94d12f4d907d84106fe7551,
@@ -577,7 +582,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23e5163ddf6172d4bada6b6f03e9a051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateRagdoll: {fileID: 0}
+  ActivateRagdoll: {fileID: 0}
 --- !u!1 &1177217440847026930 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4981755406686618509, guid: e7ea9518a94d12f4d907d84106fe7551,
@@ -683,7 +688,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23e5163ddf6172d4bada6b6f03e9a051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateRagdoll: {fileID: 0}
+  ActivateRagdoll: {fileID: 0}
 --- !u!1 &1268201939323794639 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4966660952821853618, guid: e7ea9518a94d12f4d907d84106fe7551,
@@ -790,7 +795,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23e5163ddf6172d4bada6b6f03e9a051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateRagdoll: {fileID: 0}
+  ActivateRagdoll: {fileID: 0}
 --- !u!1 &1734036445967949167 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3646761389438745582, guid: e7ea9518a94d12f4d907d84106fe7551,
@@ -885,7 +890,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23e5163ddf6172d4bada6b6f03e9a051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateRagdoll: {fileID: 0}
+  ActivateRagdoll: {fileID: 0}
 --- !u!114 &3065665864636852997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -992,7 +997,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23e5163ddf6172d4bada6b6f03e9a051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateRagdoll: {fileID: 0}
+  ActivateRagdoll: {fileID: 0}
 --- !u!114 &3065665864598347235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1111,7 +1116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23e5163ddf6172d4bada6b6f03e9a051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateRagdoll: {fileID: 0}
+  ActivateRagdoll: {fileID: 0}
 --- !u!1 &2759025477348105168 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e7ea9518a94d12f4d907d84106fe7551,
@@ -1130,7 +1135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b10becf155a967e4aac78b57c529b07f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidbodies:
+  _rigidbodies:
   - {fileID: 3065665863716046371}
   - {fileID: 3065665864317256930}
   - {fileID: 3065665863577854241}
@@ -1143,7 +1148,7 @@ MonoBehaviour:
   - {fileID: 3065665862797884348}
   - {fileID: 3065665863471278984}
   - {fileID: 3065665863330608681}
-  enemyCollisions:
+  _enemyCollisions:
   - {fileID: 3065665863716046375}
   - {fileID: 3065665864317256953}
   - {fileID: 3065665863577854242}
@@ -1168,14 +1173,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fabde15dbeea9e04daba4f56767798bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 5618664981888268938, guid: 85c7d332deeb1b24da6fc248284d4680,
+  _projectilePrefab: {fileID: 5618664981888268942, guid: 85c7d332deeb1b24da6fc248284d4680,
     type: 3}
-  projectileAngle: 0
-  projectileSpeed: 0
-  projectileSpawnPoint: {fileID: 3065665863756550664}
-  timeToCreateProjectile: 0.1
-  attackDist: 18
-  attackDelay: 100
+  _projectileSpawnPoint: {fileID: 3065665863756550664}
+  _timeToCreateProjectile: 1
+  _attackDist: 21
+  _attackDelay: 100
 --- !u!114 &3065665863269498974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1188,7 +1191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3995f5e663c77742984df5164a6738a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vewDist: 70
+  _vewDist: 80
 --- !u!1 &2970347726876501816 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8956633431093558855, guid: e7ea9518a94d12f4d907d84106fe7551,
@@ -1283,7 +1286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23e5163ddf6172d4bada6b6f03e9a051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateRagdoll: {fileID: 0}
+  ActivateRagdoll: {fileID: 0}
 --- !u!114 &3065665864591121374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1389,7 +1392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23e5163ddf6172d4bada6b6f03e9a051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateRagdoll: {fileID: 0}
+  ActivateRagdoll: {fileID: 0}
 --- !u!114 &3065665863245486855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1514,7 +1517,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23e5163ddf6172d4bada6b6f03e9a051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateRagdoll: {fileID: 0}
+  ActivateRagdoll: {fileID: 0}
 --- !u!1 &6478123840081477013 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8317450953239337748, guid: e7ea9518a94d12f4d907d84106fe7551,
@@ -1609,7 +1612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23e5163ddf6172d4bada6b6f03e9a051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateRagdoll: {fileID: 0}
+  ActivateRagdoll: {fileID: 0}
 --- !u!114 &3065665863577854243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1681,4 +1684,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23e5163ddf6172d4bada6b6f03e9a051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateRagdoll: {fileID: 0}
+  ActivateRagdoll: {fileID: 0}

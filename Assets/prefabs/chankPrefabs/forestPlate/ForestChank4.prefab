@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1926bae7274b2624f9ce6553d313ff6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countToLeave: 1
+  _countToLeave: 1
 --- !u!114 &6163801267007729763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5292f139e88135b4492f4327485a02c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chanceOfStaying: 0.7
+  ChanceOfStaying: 0.5
 --- !u!1 &1316856558257854751
 GameObject:
   m_ObjectHideFlags: 0
@@ -110,9 +110,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f4039777dc344945b1f2417f0ca0bef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  begin: {fileID: 435193402387644646}
-  end: {fileID: 5119243325654395537}
-  rotationPoint: {fileID: 8948931900911895652}
+  Begin: {fileID: 435193402387644646}
+  End: {fileID: 5119243325654395537}
+  RotationPoint: {fileID: 8948931900911895652}
 --- !u!1 &2406546070246062464
 GameObject:
   m_ObjectHideFlags: 0
@@ -123,11 +123,11 @@ GameObject:
   m_Component:
   - component: {fileID: 7110679671100801517}
   - component: {fileID: 7290380203665251242}
-  - component: {fileID: 8436734350419660359}
   - component: {fileID: 2443487190773995412}
+  - component: {fileID: 388723041036023429}
   m_Layer: 0
   m_Name: FirstTreeOrigin
-  m_TagString: obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -168,19 +168,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &8436734350419660359
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2406546070246062464}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5292f139e88135b4492f4327485a02c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chanceOfStaying: 0.5
 --- !u!114 &2443487190773995412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,7 +180,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83dd4967f2a99174ba6d59c89c2fee1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDistanceToActivate: 25
+  _minDistanceToActivate: 12
+  _maxDistanceToActivate: 15
+--- !u!135 &388723041036023429
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2406546070246062464}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: -3.5, y: 0, z: 0}
 --- !u!1 &2803541568713331628
 GameObject:
   m_ObjectHideFlags: 0
@@ -244,7 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1926bae7274b2624f9ce6553d313ff6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countToLeave: 1
+  _countToLeave: 1
 --- !u!1 &2915295400846183445
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,7 +292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1926bae7274b2624f9ce6553d313ff6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countToLeave: 1
+  _countToLeave: 1
 --- !u!1 &3373522629901209569
 GameObject:
   m_ObjectHideFlags: 0
@@ -395,7 +396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1926bae7274b2624f9ce6553d313ff6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countToLeave: 1
+  _countToLeave: 1
 --- !u!1 &3525918997547295655
 GameObject:
   m_ObjectHideFlags: 0
@@ -463,11 +464,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1061308699748367332}
   - component: {fileID: 4468118063321740167}
-  - component: {fileID: 8406544919778274781}
   - component: {fileID: 1635123035897111873}
+  - component: {fileID: 343689922809627965}
   m_Layer: 0
   m_Name: SecondTree (1)
-  m_TagString: obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -508,19 +509,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &8406544919778274781
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3720703288289204990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5292f139e88135b4492f4327485a02c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chanceOfStaying: 0.5
 --- !u!114 &1635123035897111873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -533,7 +521,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83dd4967f2a99174ba6d59c89c2fee1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDistanceToActivate: 25
+  _minDistanceToActivate: 12
+  _maxDistanceToActivate: 15
+--- !u!135 &343689922809627965
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3720703288289204990}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: -3.5, y: 0, z: 0}
 --- !u!1 &4205685833739648058
 GameObject:
   m_ObjectHideFlags: 0
@@ -544,11 +546,11 @@ GameObject:
   m_Component:
   - component: {fileID: 119629519406203631}
   - component: {fileID: 7071818805516301897}
-  - component: {fileID: 3997343611133229512}
   - component: {fileID: 1530190446613905581}
+  - component: {fileID: 5249302911848762900}
   m_Layer: 0
   m_Name: FirstTreeOrigin (1)
-  m_TagString: obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -589,19 +591,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3997343611133229512
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4205685833739648058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5292f139e88135b4492f4327485a02c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chanceOfStaying: 0.5
 --- !u!114 &1530190446613905581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -614,7 +603,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83dd4967f2a99174ba6d59c89c2fee1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDistanceToActivate: 25
+  _minDistanceToActivate: 12
+  _maxDistanceToActivate: 15
+--- !u!135 &5249302911848762900
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4205685833739648058}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: -3.5, y: 0, z: 0}
 --- !u!1 &5306178650498553096
 GameObject:
   m_ObjectHideFlags: 0
@@ -666,7 +669,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1926bae7274b2624f9ce6553d313ff6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countToLeave: 1
+  _countToLeave: 1
 --- !u!1 &5359399101604954982
 GameObject:
   m_ObjectHideFlags: 0
@@ -717,11 +720,11 @@ GameObject:
   m_Component:
   - component: {fileID: 834121700896326825}
   - component: {fileID: 5181400378678108035}
-  - component: {fileID: 5550374556035438926}
   - component: {fileID: 1989389125641797227}
+  - component: {fileID: 579526970406276762}
   m_Layer: 0
   m_Name: SecondTree
-  m_TagString: obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -762,19 +765,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5550374556035438926
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5397950315727092464}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5292f139e88135b4492f4327485a02c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chanceOfStaying: 0.5
 --- !u!114 &1989389125641797227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -787,7 +777,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83dd4967f2a99174ba6d59c89c2fee1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDistanceToActivate: 25
+  _minDistanceToActivate: 12
+  _maxDistanceToActivate: 15
+--- !u!135 &579526970406276762
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5397950315727092464}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: -3.5, y: 0, z: 0}
 --- !u!1 &6002008118346964557
 GameObject:
   m_ObjectHideFlags: 0
@@ -1075,7 +1079,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1926bae7274b2624f9ce6553d313ff6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countToLeave: 1
+  _countToLeave: 1
 --- !u!1001 &63371143187500481
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2901,7 +2905,7 @@ PrefabInstance:
     - target: {fileID: 6259118914160107598, guid: b4190edc8c07dfa49b6a2aa41e4ebae5,
         type: 3}
       propertyPath: m_TagString
-      value: obstacle
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 6259118914160107598, guid: b4190edc8c07dfa49b6a2aa41e4ebae5,
         type: 3}
@@ -4519,7 +4523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5292f139e88135b4492f4327485a02c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chanceOfStaying: 0.5
+  ChanceOfStaying: 0.5
 --- !u!4 &7525796581946941888 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8341061187782183142, guid: 5a50e798d3468a34b9697cf76a45b50d,
@@ -5173,7 +5177,7 @@ PrefabInstance:
     - target: {fileID: 4020694736851129358, guid: 7e45115c7ff948541b241331c72f85e1,
         type: 3}
       propertyPath: m_TagString
-      value: obstacle
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4020694736851129358, guid: 7e45115c7ff948541b241331c72f85e1,
         type: 3}
@@ -6578,7 +6582,7 @@ PrefabInstance:
     - target: {fileID: 4020694736851129358, guid: 7e45115c7ff948541b241331c72f85e1,
         type: 3}
       propertyPath: m_TagString
-      value: obstacle
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4020694736851129358, guid: 7e45115c7ff948541b241331c72f85e1,
         type: 3}
@@ -7737,7 +7741,7 @@ PrefabInstance:
     - target: {fileID: 6259118914160107598, guid: b4190edc8c07dfa49b6a2aa41e4ebae5,
         type: 3}
       propertyPath: m_TagString
-      value: obstacle
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 6259118914160107598, guid: b4190edc8c07dfa49b6a2aa41e4ebae5,
         type: 3}
@@ -13345,7 +13349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5292f139e88135b4492f4327485a02c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chanceOfStaying: 0.2
+  ChanceOfStaying: 0.5
 --- !u!1001 &7665766279309104186
 PrefabInstance:
   m_ObjectHideFlags: 0

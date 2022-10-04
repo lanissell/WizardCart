@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace props
@@ -6,8 +5,9 @@ namespace props
     [RequireComponent(typeof(Rigidbody))]
     public class SpeedLimit : MonoBehaviour
     {
+        [SerializeField]
+        private float _maxSpeed;
         private Rigidbody _rb;
-        [SerializeField] private float maxSpeed;
         private void Start()
         {
             _rb = GetComponent<Rigidbody>();
@@ -15,7 +15,7 @@ namespace props
 
         private void Update()
         {
-            if (_rb.velocity.magnitude > maxSpeed) _rb.velocity = _rb.velocity.normalized * maxSpeed;
+            if (_rb.velocity.magnitude > _maxSpeed) _rb.velocity = _rb.velocity.normalized * _maxSpeed;
         }
     }
 }

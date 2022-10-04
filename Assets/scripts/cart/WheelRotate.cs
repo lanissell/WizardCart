@@ -1,23 +1,25 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace cart
 {
     public class WheelRotate : MonoBehaviour
     {
-        [SerializeField]
-        private float wheelRotateSpeed;
-        [SerializeField]
-        private Transform wheelsModelParent;
+        [FormerlySerializedAs("wheelRotateSpeed")] [SerializeField]
+        private float _wheelRotateSpeed;
+        [FormerlySerializedAs("wheelsModelParent")] [SerializeField]
+        private Transform _wheelsModelParent;
         private Transform[] _wheelsModels;
 
         private void Start()
         {
-            _wheelsModels = wheelsModelParent.GetComponentsInChildren<Transform>();
+            _wheelsModels = _wheelsModelParent.GetComponentsInChildren<Transform>();
         }
 
         private void Update()
         {
-            foreach (Transform wheel in _wheelsModels) wheel.Rotate(new Vector3(wheel.localPosition.x,0,0), wheelRotateSpeed * Time.deltaTime) ;
+            foreach (var wheel in _wheelsModels) 
+                wheel.Rotate(new Vector3(wheel.localPosition.x,0,0), _wheelRotateSpeed * Time.deltaTime) ;
         }
     }
 }

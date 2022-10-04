@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace enemy
 {
@@ -7,23 +8,18 @@ namespace enemy
     {
         [Header("Projectile")]
         [SerializeField]
-        private Projectile projectilePrefab;
-        private Projectile _projectileObject;
-        [Range(45, 60)]
+        private GameObject _projectilePrefab;
+        private IProjectile _projectileObject;
         [SerializeField]
-        private float projectileAngle;
-        [SerializeField]
-        private float projectileSpeed;
-        [SerializeField]
-        private Transform projectileSpawnPoint;
+        private Transform _projectileSpawnPoint;
         [SerializeField] 
-        private float timeToCreateProjectile = 1;
+        private float _timeToCreateProjectile = 1;
         
         [Header("Attack")]
         [SerializeField]
-        private float attackDist;
+        private float _attackDist;
         [SerializeField]
-        private float attackDelay;
+        private float _attackDelay;
         private bool _isAttack;
         private Transform _target;
         private Animator _animator;
@@ -32,13 +28,13 @@ namespace enemy
         private void Start()
         {
             _animator = GetComponent<Animator>();
-            attackDist = Random.Range(attackDist / 1.5f, attackDist);
+            _attackDist = Random.Range(_attackDist / 1.5f, _attackDist);
         }
 
         public void StartAttackCoroutine(float dist, Transform target)
         {
             if (_isAttack) return;
-            if (dist > attackDist) return;
+            if (dist > _attackDist) return;
             _target = target;
             StartCoroutine(Attack());
         }
@@ -46,16 +42,16 @@ namespace enemy
         private IEnumerator Attack()
         {
             _isAttack = true;
-            _projectileObject = Instantiate(projectilePrefab, projectileSpawnPoint.position,Quaternion.identity,projectileSpawnPoint);
-            yield return new WaitForSeconds(timeToCreateProjectile);
+            _projectileObject = Instantiate(_projectilePrefab, _projectileSpawnPoint).GetComponent<IProjectile>();
+            yield return new WaitForSeconds(_timeToCreateProjectile);
             _animator.SetTrigger(Atk);
-            yield return new WaitForSeconds(attackDelay);
+            yield return new WaitForSeconds(_attackDelay);
             _isAttack = false;
         }
 
         private void ThrowProjectile() //used in animation event
         {
-            _projectileObject.Throw(_target, projectileAngle, projectileSpeed);
+            _projectileObject.Throw(_target.position);
         }
     }
 }

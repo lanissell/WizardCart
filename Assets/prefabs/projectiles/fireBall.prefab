@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 4501649877027675542}
   - component: {fileID: 4560138149802329864}
   - component: {fileID: 7780317563071535344}
+  - component: {fileID: 5709460971838082076}
   m_Layer: 0
   m_Name: Fire
-  m_TagString: fireBall
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +30,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1398208952575225409}
   m_Father: {fileID: 7636158621231757428}
@@ -988,6 +989,15 @@ ParticleSystem:
           time: 0
           value: 0
           inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 0.0071409456
+          value: 1
+          inSlope: 1
           outSlope: 1
           tangentMode: 0
           weightedMode: 0
@@ -996,11 +1006,11 @@ ParticleSystem:
         - serializedVersion: 3
           time: 1
           value: 1
-          inSlope: 1
-          outSlope: 0
+          inSlope: -2.953433
+          outSlope: -2.953433
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
+          inWeight: 0.1700137
           outWeight: 0.33333334
         m_PreInfinity: 2
         m_PostInfinity: 2
@@ -4822,11 +4832,31 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1960597577424470597}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.6
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &5709460971838082076
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1960597577424470597}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c0381d681dbb88d46b8f247d5430f0ef, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7437302438983232692
 GameObject:
   m_ObjectHideFlags: 0
@@ -9652,6 +9682,7 @@ GameObject:
   - component: {fileID: 7636158621231757429}
   - component: {fileID: 3654913730383496163}
   - component: {fileID: 7120274148279750136}
+  - component: {fileID: 2193419200865988126}
   m_Layer: 0
   m_Name: fireBall
   m_TagString: Untagged
@@ -9927,8 +9958,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
-      minScalar: 1
+      scalar: 0.4
+      minScalar: 0.1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -14494,7 +14525,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 651c7f08942b58047892187bf16906b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireBallSphere: {fileID: 1960597577424470597}
-  explosion: {fileID: 4392333013709349873, guid: dfcb23bc114b43f45b6a680df156fcdd,
+  _createDelay: 0.7
+  _sphere: {fileID: 1960597577424470597}
+  _explosion: {fileID: 4392333013709349873, guid: dfcb23bc114b43f45b6a680df156fcdd,
     type: 3}
-  fireBallCreateDelay: 1
+  _angleInDegrees: 45
+--- !u!135 &2193419200865988126
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7636158621231757435}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.1
+  m_Center: {x: 0, y: 0, z: 0}

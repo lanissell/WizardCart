@@ -9,15 +9,15 @@ namespace enemy
         public event Action OnRagdollActive;
         private Animator _animator;
         [SerializeField]
-        private Rigidbody[] rigidbodies;
+        private Rigidbody[] _rigidbodies;
         [SerializeField] 
-        private EnemyLimbCollision[] enemyCollisions;
+        private EnemyLimbCollision[] _enemyCollisions;
         
 
         private void Awake()
         {
-            foreach (var rb in rigidbodies) rb.isKinematic = true;
-            foreach (var c in enemyCollisions) c.activateRagdoll = this;
+            foreach (Rigidbody rb in _rigidbodies) rb.isKinematic = true;
+            foreach (EnemyLimbCollision c in _enemyCollisions) c.ActivateRagdoll = this;
         }
 
         private void Start()
@@ -32,8 +32,8 @@ namespace enemy
         {
             _animator.enabled = false;
             OnRagdollActive?.Invoke();
-            foreach (var rb in rigidbodies) rb.isKinematic = false;
-            foreach (var c in enemyCollisions) Destroy(c);
+            foreach (Rigidbody rb in _rigidbodies) rb.isKinematic = false;
+            foreach (EnemyLimbCollision c in _enemyCollisions) Destroy(c);
         }
 
     }

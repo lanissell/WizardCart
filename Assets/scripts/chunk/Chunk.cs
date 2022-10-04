@@ -4,8 +4,8 @@ namespace chunk
 {
     public class Chunk : MonoBehaviour
     {
-        public Transform begin;
-        public Transform end;
-        public Transform rotationPoint;
+        public Transform Begin;
+        public Transform End;
+        public Transform RotationPoint;
     }
 }

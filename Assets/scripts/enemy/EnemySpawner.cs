@@ -5,16 +5,15 @@ namespace enemy
     public class EnemySpawner : MonoBehaviour
     {
         private GameManager _gameManager;
-        private GameObject[] enemyPrefabs;
+        private GameObject[] _enemyPrefabs;
         private void Start()
         {
             _gameManager = GameManager.Instance;
-            if (!_gameManager.CheckEnemySpawnDelay()) return;
-            enemyPrefabs = _gameManager.EnemyPrefabs;
-            var enemyParent = _gameManager.EnemyParent;
-            var position = transform.GetChild(0).position;
-            var rotation = transform.GetChild(0).rotation;
-            Instantiate(enemyPrefabs[Random.Range(0,enemyPrefabs.Length)], position,rotation,enemyParent);
+            if (!_gameManager.CheckSpawnPossibility()) return;
+            _enemyPrefabs = _gameManager.EnemyPrefabs;
+            Transform enemyParent = _gameManager.EnemyParent;
+            Vector3 position = transform.GetChild(0).position;
+            Instantiate(_enemyPrefabs[Random.Range(0,_enemyPrefabs.Length)], position, Quaternion.identity, enemyParent);
         }
     }
 }
