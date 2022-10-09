@@ -5,7 +5,7 @@ using Random = UnityEngine.Random;
 
 namespace chunk
 {
-    public class ChunksPlacer : MonoBehaviour
+    public class ChunksPlacer : MonoBehaviour, INeedBeSingle
     {
         public static ChunksPlacer Instance { get; private set; }
         public float _generationDistance;

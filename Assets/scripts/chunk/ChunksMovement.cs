@@ -6,17 +6,15 @@ namespace chunk
     {
         [SerializeField]
         private float _moveSpeed;
-        [SerializeField]
-        private AnimationCurve _speedFromDistance;
-        private GameManager _gameManager;
+        private DistanceDependence _distanceDependence;
 
         private void Start()
         {
-            _gameManager = GameManager.Instance;
+            _distanceDependence = Singleton<DistanceDependence>.Instance;
         }
         private void Update()
         {
-            _moveSpeed = _speedFromDistance.Evaluate( _gameManager.TotalDistance);
+            _moveSpeed = _distanceDependence.MoveSpeed;
             transform.Translate(-transform.forward * (Time.deltaTime * _moveSpeed));
         }
     }
