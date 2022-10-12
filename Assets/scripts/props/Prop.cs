@@ -7,11 +7,11 @@ namespace props
     [RequireComponent (typeof(Rigidbody))]
     public class Prop: MonoBehaviour
     {
-        private GameObject _chunkPlacer;
+        private ChunksPlacer _chunkPlacer;
         private Rigidbody _rigidbody;
         private void Start()
         {
-            _chunkPlacer = ChunksPlacer.Instance.gameObject;
+            _chunkPlacer = Singleton<ChunksPlacer>.Instance;
             _rigidbody = GetComponent<Rigidbody>();
         }
 

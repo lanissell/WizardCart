@@ -1,12 +1,11 @@
 using Chunk;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class EndRun : MonoBehaviour
 {
     private void Start()
     {
-        GlobalEventManager.OnPlayerHit += EndRound;
+        GlobalEventManager.OnEnemyHit += EndRound;
     }
 
     private static void EndRound()
@@ -15,17 +14,14 @@ public class EndRun : MonoBehaviour
         //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public void ReloadScene(string gestureName)
-    {
-        if (gestureName.Equals("Circle")) SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.parent.TryGetComponent(out Obstacle _))
-        {
-            EndRound();
-        }
+        // var parent = other.transform.parent;
+        // if (parent == null) return;
+        // if (parent.TryGetComponent(out Obstacle _))
+        // {
+        //     EndRound();
+        // }
     }
 
 }

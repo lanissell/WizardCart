@@ -1,16 +1,14 @@
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace Chunk
 {
     [RequireComponent(typeof(Animator),typeof(SphereCollider))]
-    public class Obstacle : MonoBehaviour
+    public class ObstacleActivator : MonoBehaviour
     {
         [SerializeField]
         private float _minDistanceToActivate;
         [SerializeField]
         private float _maxDistanceToActivate;
-        private float _distance;
         private Animator _animator;
         private SphereCollider _collider;
         private DistanceDependence _distanceDependence;
@@ -26,8 +24,8 @@ namespace Chunk
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("MainCamera")) _animator.enabled = true;
+            if (other.TryGetComponent(out Player _)) _animator.enabled = true;
         }
-    
+
     }
 }

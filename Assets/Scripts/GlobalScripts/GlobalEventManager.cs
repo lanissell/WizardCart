@@ -2,7 +2,7 @@
 
 public static class GlobalEventManager
 {
-        public static event Action OnPlayerHit;
+        public static event Action OnEnemyHit;
         
-        public static void SendOnPlayerHit() => OnPlayerHit?.Invoke();
+        public static void SendOnPlayerHit() => OnEnemyHit?.Invoke();
 }

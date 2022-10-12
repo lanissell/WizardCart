@@ -7,7 +7,6 @@ namespace chunk
 {
     public class ChunksPlacer : MonoBehaviour, INeedBeSingle
     {
-        public static ChunksPlacer Instance { get; private set; }
         public float _generationDistance;
         private Transform _player;
         [Header("Chunks")]
@@ -18,10 +17,6 @@ namespace chunk
         private Chunk[] _chunksForSpawn;
         private Dictionary<int, Chunk[]> _chunks;
         private readonly List<Chunk> _spawnedChunks = new List<Chunk>();
-        private void Awake()
-        {
-            Instance = this;
-        }
         private void Start()
         {
             _spawnedChunks.Add(_firstChunk);

@@ -1,10 +1,10 @@
+using System;
 using UnityEngine;
-
-namespace enemy.wizard
+namespace Chunk
 {
-    public class ParticlePlayerCollision : MonoBehaviour
+    public class ObstaclePlayerCollision : MonoBehaviour
     {
-        private void OnParticleCollision(GameObject other)
+        private void OnTriggerEnter(Collider other)
         {
             if (other.TryGetComponent(out Player _)) GlobalEventManager.SendOnPlayerHit();
         }

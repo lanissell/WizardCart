@@ -14,7 +14,7 @@ namespace enemy.wizard
         private ChunksPlacer _chunksPlacer;
         private void Start()
         {
-            _chunksPlacer = ChunksPlacer.Instance;
+            _chunksPlacer = Singleton<ChunksPlacer>.Instance;
             _activateRagdoll = GetComponent<Ragdoll>();
             _attacker = GetComponent<ProjectileAttacker>();
             _target = Camera.main.transform;

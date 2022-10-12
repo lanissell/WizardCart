@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 5618664981888268941}
   - component: {fileID: 5618664981888268940}
   - component: {fileID: 5618664981888268938}
+  - component: {fileID: 6526952566687814554}
+  - component: {fileID: -6971836897731259419}
   m_Layer: 0
   m_Name: shardsAttack
   m_TagString: Untagged
@@ -3621,7 +3623,7 @@ ParticleSystem:
     colliderForce: 0
     multiplyColliderForceByParticleSize: 0
     multiplyColliderForceByParticleSpeed: 0
-    multiplyColliderForceByCollisionAngle: 0
+    multiplyColliderForceByCollisionAngle: 1
     m_Planes: []
     m_Dampen:
       serializedVersion: 2
@@ -3679,7 +3681,7 @@ ParticleSystem:
     m_Bounce:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2
+      scalar: 1
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -3782,15 +3784,15 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    minKillSpeed: 1
-    maxKillSpeed: 1
+    minKillSpeed: 0
+    maxKillSpeed: 4
     radiusScale: 0.1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 1
+      m_Bits: 9
     maxCollisionShapes: 256
     quality: 0
-    voxelSize: 1
+    voxelSize: 0.5
     collisionMessages: 1
     collidesWithDynamic: 1
     interiorCollisions: 0
@@ -4828,6 +4830,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _chargeEffect: {fileID: 5907293762045373274, guid: 3877ba8280231d2499b276fc06b4c9bf,
     type: 3}
+--- !u!114 &6526952566687814554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5618664981888268942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89b58d69c3b707846bb7260970556315, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-6971836897731259419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5618664981888268942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df1ad35075039ed4ba57a056c6b40704, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _destroyTime: 100
 --- !u!1001 &5618664981248277849
 PrefabInstance:
   m_ObjectHideFlags: 0

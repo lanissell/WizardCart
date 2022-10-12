@@ -5,13 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - MainCart
-  - fireWizard
-  - fireBall
-  - enemyParent
-  - sword
   - ground
   - blade
-  - Shield
   layers:
   - Default
   - TransparentFX

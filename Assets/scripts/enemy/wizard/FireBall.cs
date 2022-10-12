@@ -66,7 +66,7 @@ namespace enemy.wizard
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("MainCamera")) GlobalEventManager.SendOnPlayerHit();
+            if (other.TryGetComponent(out Player _)) GlobalEventManager.SendOnPlayerHit();
         }
     }
 }

@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1828774885056883032
 Transform:
   m_ObjectHideFlags: 0
@@ -3798,7 +3798,7 @@ ParticleSystem:
     radiusScale: 2
     collidesWith:
       serializedVersion: 2
-      m_Bits: 2147483647
+      m_Bits: 9
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5

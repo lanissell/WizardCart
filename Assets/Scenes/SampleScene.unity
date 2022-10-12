@@ -6822,10 +6822,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 411653709}
-  - component: {fileID: 411653710}
   m_Layer: 0
   m_Name: Camera Offset
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6848,19 +6847,6 @@ Transform:
   m_Father: {fileID: 1437505058}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &411653710
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 411653708}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.35
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &412307626
 GameObject:
   m_ObjectHideFlags: 0
@@ -8550,8 +8536,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: -7.847538
-      value: 0.49951783
+      time: 0
+      value: 0.45
       inSlope: 0.00006510292
       outSlope: 0.00006510292
       tangentMode: 0
@@ -8596,6 +8582,15 @@ MonoBehaviour:
       value: 4.5
       inSlope: 0.0013342716
       outSlope: 0.0013342716
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 350
+      value: 6
+      inSlope: 0.001214879
+      outSlope: 0.001214879
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
@@ -8673,7 +8668,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyPrefabs:
-  - {fileID: 4004414879622688772, guid: 495fb4aa1cefb304696063de7bcb37fb, type: 3}
   - {fileID: 5925433370775613715, guid: d0607b7cb5bca2741aa34ee703c68f77, type: 3}
   - {fileID: 2923773003411557326, guid: 9a7d6777346006e438ed3b5cd36776a4, type: 3}
   EnemyParent: {fileID: 1460149833}
@@ -24518,7 +24512,7 @@ GameObject:
   - component: {fileID: 1460149833}
   m_Layer: 0
   m_Name: Enemies
-  m_TagString: enemyParent
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25705,9 +25699,11 @@ GameObject:
   - component: {fileID: 1522589268}
   - component: {fileID: 1522589267}
   - component: {fileID: 1522589271}
-  - component: {fileID: 1522589270}
+  - component: {fileID: 1522589277}
   - component: {fileID: 1522589272}
   - component: {fileID: 1522589275}
+  - component: {fileID: 1522589270}
+  - component: {fileID: 1522589276}
   m_Layer: 3
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -25766,7 +25762,7 @@ SphereCollider:
   m_GameObject: {fileID: 1522589264}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.35
   m_Center: {x: 0, y: 0, z: 0}
@@ -25872,8 +25868,33 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 4
+  m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!135 &1522589276
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522589264}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.34
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1522589277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522589264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a98c6a696ce92484588cf12d4763b67f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1528115357
 PrefabInstance:
   m_ObjectHideFlags: 0
