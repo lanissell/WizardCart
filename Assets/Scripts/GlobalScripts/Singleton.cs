@@ -14,7 +14,7 @@ public abstract class Singleton<T> : Singleton where T : MonoBehaviour, INeedBeS
             if (count > 0) //Set new instance
             {
                 if (count == 1) return _instance = instances[0];
-                for (int i = 1; i < count; i++) Destroy(instances[i]); // Destroy extra object
+                for (int i = 1; i < count; i++) Destroy(instances[i]); //Destroy extra object
                 return _instance = instances[0];
             }
             string name = typeof(T).ToString();

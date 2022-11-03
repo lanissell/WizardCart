@@ -9,15 +9,17 @@ namespace props
     {
         private ChunksPlacer _chunkPlacer;
         private Rigidbody _rigidbody;
+        private Transform _transform;
         private void Start()
         {
             _chunkPlacer = Singleton<ChunksPlacer>.Instance;
             _rigidbody = GetComponent<Rigidbody>();
+            _transform = transform;
         }
 
         private void Update()
         {
-            if (transform.position.y < -15) Destroy(gameObject);
+            if (_transform.position.y < -15) Destroy(gameObject);
         }
 
         public void SetRigidbodyIsKinematicFalse()
@@ -29,7 +31,7 @@ namespace props
         {
             if (other.CompareTag("ground"))
             {
-                transform.parent = _chunkPlacer.transform;
+                _transform.parent = _chunkPlacer.ThisTransform;
             }
         }
     }

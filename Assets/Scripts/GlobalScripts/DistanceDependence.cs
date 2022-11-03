@@ -25,7 +25,7 @@ public class DistanceDependence : MonoBehaviour, INeedBeSingle
 
     private void Update()
     {
-        TotalDistance = -_chunksPlacer.transform.position.z;
+        TotalDistance = -_chunksPlacer.ThisTransform.position.z;
         CurvesEvaluate();
         _scoreText.text = $"{Mathf.RoundToInt(TotalDistance)}";
     }

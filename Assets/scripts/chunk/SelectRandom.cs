@@ -8,9 +8,10 @@ namespace chunk
 
         private void Start()
         {
-            while (transform.childCount > _countToLeave)
+            var thisTransform = transform;
+            while (thisTransform.childCount > _countToLeave)
             {
-                Transform childToDestroy = transform.GetChild(Random.Range(0, transform.childCount));
+                Transform childToDestroy = thisTransform.GetChild(Random.Range(0, thisTransform.childCount));
                 DestroyImmediate(childToDestroy.gameObject);
             }
         }

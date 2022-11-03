@@ -56,12 +56,12 @@ public class MovementRecognizer : MonoBehaviour
     {
         _isMoving = true;
         _positions.Clear();
-        _positions.Add(_movementSource.transform.position);
+        _positions.Add(_movementSource.position);
     }
     
     private void UpdateMovement()
     {
-        Vector3 movementSourcePosition = _movementSource.transform.position;
+        Vector3 movementSourcePosition = _movementSource.position;
         if (!(Vector3.Distance(movementSourcePosition, _positions[^1]) > _movementThresholdDistance)) return;
         _positions.Add(movementSourcePosition);
         Instantiate(_drawParticle,movementSourcePosition,Quaternion.identity);

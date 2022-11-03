@@ -1738,6 +1738,7 @@ Transform:
   - {fileID: 8228409910964650215}
   - {fileID: 3972684021040313428}
   - {fileID: 2617222365005790349}
+  - {fileID: 4594457275355724091}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1774,6 +1775,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _vewDist: 80
+  _destroyAfterDieTime: 25
 --- !u!114 &2617222363920835913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1786,11 +1788,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fabde15dbeea9e04daba4f56767798bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _projectilePrefab: {fileID: 1828774885717464127, guid: b7503541c61486d43836515adf9cc383,
+  _projectilePrefab: {fileID: 8470243113957199105, guid: b7503541c61486d43836515adf9cc383,
     type: 3}
-  _projectileSpawnPoint: {fileID: 2617222365005790349}
-  _timeToCreateProjectile: 1
-  _attackDist: 27
+  _spawnPoint: {fileID: 2617222365005790349}
+  _attackDist: 21
   _attackDelay: 100
 --- !u!114 &2617222363920835912
 MonoBehaviour:
@@ -1817,7 +1818,7 @@ MonoBehaviour:
   - {fileID: 2617222364648143841}
   - {fileID: 2617222364811036412}
   - {fileID: 2617222363957806773}
-  _enemyCollisions:
+  _enemyLimbs:
   - {fileID: 4644383313159022320}
   - {fileID: 6015505133943262581}
   - {fileID: 7783773935706406007}
@@ -3569,6 +3570,65 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActivateRagdoll: {fileID: 0}
+--- !u!1 &7313388526184717558
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4594457275355724091}
+  - component: {fileID: 4549087003953278585}
+  - component: {fileID: 235338373074925298}
+  m_Layer: 2
+  m_Name: WeponMagneticArea
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4594457275355724091
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7313388526184717558}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.976, z: 0.228}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2582960221148762484}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &4549087003953278585
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7313388526184717558}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &235338373074925298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7313388526184717558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b2394765f79ba946b0e70aeea9b49d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _areaSize: 1.6
 --- !u!1 &7502398823784394938
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,6 +1,6 @@
 using System.Collections;
+using Projectile_and_particle;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace enemy
 {
@@ -8,50 +8,58 @@ namespace enemy
     {
         [Header("Projectile")]
         [SerializeField]
-        private GameObject _projectilePrefab;
-        private IProjectile _projectileObject;
+        private Projectile _projectilePrefab;
+        private Projectile _projectileObject;
         [SerializeField]
-        private Transform _projectileSpawnPoint;
-        [SerializeField] 
-        private float _timeToCreateProjectile = 1;
-        
+        private Transform _spawnPoint;
         [Header("Attack")]
         [SerializeField]
         private float _attackDist;
         [SerializeField]
         private float _attackDelay;
         private bool _isAttack;
-        private Transform _target;
+        private Vector3 _targetPosition;
         private Animator _animator;
-        
         private static readonly int Atk = Animator.StringToHash("atk");
+        
         private void Start()
         {
             _animator = GetComponent<Animator>();
             _attackDist = Random.Range(_attackDist / 1.5f, _attackDist);
         }
 
-        public void StartAttackCoroutine(float dist, Transform target)
+        public void Attack(Vector3 targetPosition, float dist)
         {
-            if (_isAttack) return;
-            if (dist > _attackDist) return;
-            _target = target;
-            StartCoroutine(Attack());
+            if (!CheckAttackPossibility(dist)) return;
+            _isAttack = true;
+            _targetPosition = targetPosition;
+            _animator.SetTrigger(Atk);
+            CrateProjectile();
+            StartCoroutine(AttackDelay());
         }
 
-        private IEnumerator Attack()
+        private bool CheckAttackPossibility(float dist)
         {
-            _isAttack = true;
-            _projectileObject = Instantiate(_projectilePrefab, _projectileSpawnPoint).GetComponent<IProjectile>();
-            yield return new WaitForSeconds(_timeToCreateProjectile);
-            _animator.SetTrigger(Atk);
+            if (_isAttack) return false;
+            return dist < _attackDist;
+        }
+
+        private void CrateProjectile()
+        {
+            _projectileObject = Instantiate(_projectilePrefab, _spawnPoint);
+            _projectileObject.SetCanHitPlayer(true);
+        }
+
+        private IEnumerator AttackDelay()
+        {
             yield return new WaitForSeconds(_attackDelay);
             _isAttack = false;
         }
+        
 
         private void ThrowProjectile() //used in animation event
         {
-            _projectileObject.Throw(_target.position);
+            _projectileObject.Throw(_targetPosition);
         }
     }
 }

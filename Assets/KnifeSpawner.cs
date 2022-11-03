@@ -11,7 +11,8 @@ public class KnifeSpawner : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(5);
-            Instantiate(Prefab, transform.position, quaternion.identity);
+            if (transform.childCount < 30) 
+                Instantiate(Prefab, transform.position, quaternion.identity, transform);
         }
     }
 }

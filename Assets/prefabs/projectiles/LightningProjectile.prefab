@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1828774885056883032}
   - component: {fileID: 1828774885056883033}
   - component: {fileID: 1828774885056883034}
-  - component: {fileID: 1006134449603852693}
+  - component: {fileID: 948105001336238706}
   m_Layer: 0
   m_Name: Lightning
   m_TagString: Untagged
@@ -4826,7 +4826,7 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &1006134449603852693
+--- !u!114 &948105001336238706
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4835,7 +4835,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1828774885056883035}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89b58d69c3b707846bb7260970556315, type: 3}
+  m_Script: {fileID: 11500000, guid: 56a97ec01e41f524db3ee718bce4d7b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1828774885190971322

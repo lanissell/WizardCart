@@ -19,7 +19,6 @@ namespace Chunk
             _animator = GetComponent<Animator>();
             _collider = GetComponent<SphereCollider>();
             _collider.radius = Random.Range(_minDistanceToActivate, _maxDistanceToActivate);
-
         }
 
         private void OnTriggerEnter(Collider other)
