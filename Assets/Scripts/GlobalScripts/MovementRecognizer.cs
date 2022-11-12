@@ -5,6 +5,7 @@ using UnityEngine.Events;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
 
+[RequireComponent(typeof(AudioSource))]
 public class MovementRecognizer : MonoBehaviour
 {
     [SerializeField]
@@ -28,11 +29,13 @@ public class MovementRecognizer : MonoBehaviour
     [SerializeField]
     private UnityEvent<string> _onRecognized;
     private bool _isMoving;
+    private AudioSource _audioSource;
     private readonly List<Vector3> _positions = new List<Vector3>();
     private readonly List<Gesture> _trainingSet = new List<Gesture>();
 
     private void Start()
     {
+        _audioSource = GetComponent<AudioSource>();
         _isMoving = false;
         var gestureFiles = Resources.LoadAll<TextAsset>("MovementRecognizeResources");
         foreach (var gestureFile in gestureFiles) _trainingSet.Add(GestureIO.ReadGestureFromXML(gestureFile.ToString()));
@@ -54,6 +57,7 @@ public class MovementRecognizer : MonoBehaviour
 
     private void StartMovement()
     {
+        _audioSource.Play();
         _isMoving = true;
         _positions.Clear();
         _positions.Add(_movementSource.position);
@@ -69,6 +73,7 @@ public class MovementRecognizer : MonoBehaviour
    
     private void EndMovement()
     {
+        _audioSource.Pause();
         _isMoving = false;
         if (_positions.Count < 1) return;
         Point[] points = PositionsToScreenPoints();

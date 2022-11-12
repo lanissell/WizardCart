@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace enemy
 {
@@ -28,10 +27,14 @@ namespace enemy
         private void ActivateRagdoll()
         {
             _animator.enabled = false;
-            foreach (EnemyLimb c in _enemyLimbs) c.OnLimbHit -= ActivateRagdoll;
             OnRagdollActive?.Invoke();
+            foreach (EnemyLimb limb in _enemyLimbs)
+            {
+                limb.OnLimbHit -= ActivateRagdoll;
+                Destroy(limb);
+            }
             foreach (Rigidbody rb in _rigidbodies) rb.isKinematic = false;
-            foreach (EnemyLimb c in _enemyLimbs) Destroy(c);
+
         }
 
     }
