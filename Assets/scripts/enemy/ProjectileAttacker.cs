@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using Projectile_and_particle;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 namespace enemy
 {
@@ -22,10 +24,12 @@ namespace enemy
         private Vector3 _targetPosition;
         private Animator _animator;
         private Transform _transform;
+
         private static readonly int Atk = Animator.StringToHash("atk");
         
         private void Start()
         {
+            GlobalEventManager.OnRagdollActive += DestroyAttacker;
             _animator = GetComponent<Animator>();
             _attackDist = Random.Range(_attackDist / 1.5f, _attackDist);
             _transform = transform;
@@ -70,6 +74,14 @@ namespace enemy
         private void ThrowProjectile() //used in animation event
         {
             _projectileObject.Throw(_targetPosition);
+        }
+
+        private void DestroyAttacker(Transform destroyTransform)
+        {
+            if (destroyTransform != _transform) return;
+            GlobalEventManager.OnRagdollActive -= DestroyAttacker;
+            GlobalEventManager.SendOnProjectileAttackerDestroy(_projectileObject);
+            Destroy(this);
         }
     }
 }

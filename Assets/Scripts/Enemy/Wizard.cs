@@ -17,7 +17,7 @@ namespace Enemy
         {
             _ragdollActivator = GetComponent<RagdollActivator>();
             _targetPosition = Camera.main.transform.position;
-            _ragdollActivator.OnRagdollActive += Die;
+            GlobalEventManager.OnRagdollActive += Die;
         }
 
         private void Update()
@@ -25,9 +25,10 @@ namespace Enemy
             transform.LookAt(new Vector3(_targetPosition.x, 0, _targetPosition.z));
         }
 
-        private void Die()
+        private void Die(Transform dieTransform)
         {
-            _ragdollActivator.OnRagdollActive -= Die;
+            if (dieTransform != transform) return;
+            GlobalEventManager.OnRagdollActive -= Die;
             DestroyUnusedScripts();
             Destroy(gameObject, _destroyAfterDieTime);
         }

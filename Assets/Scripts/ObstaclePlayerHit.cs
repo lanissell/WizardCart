@@ -6,7 +6,7 @@ namespace Chunk
     {
         private void OnTriggerEnter(Collider other)
         {
-            if (other.TryGetComponent(out Player _)) GlobalEventManager.SendOnPlayerHit();
+            if (other.TryGetComponent(out Player _)) GlobalEventManager.SendOnEnemyHit();
         }
     }
 }

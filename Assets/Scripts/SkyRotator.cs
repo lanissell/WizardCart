@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SkyRotation : MonoBehaviour
+public class SkyRotator : MonoBehaviour
 {
     [SerializeField]
     private float _rotationSpeed = 1.2f;

@@ -18,14 +18,13 @@ namespace chunk
         private Chunk[] _forestChunkPrefabs;
         private Chunk[] _chunksForSpawn;
         private readonly List<Chunk> _spawnedChunks = new List<Chunk>();
+        
         private void Start()
         {
             _spawnedChunks.Add(_firstChunk);
             _chunksForSpawn = _forestChunkPrefabs;
             if (Camera.main != null) _player = Camera.main.transform;
             ThisTransform = transform;
-            StartCoroutine(ModGenerationDist(3));
-
         }
 
         private void Update()
@@ -49,13 +48,5 @@ namespace chunk
             Destroy(_spawnedChunks[0].gameObject);
             _spawnedChunks.RemoveAt(0);
         }
-        
-        private IEnumerator ModGenerationDist(float mod)
-        {
-            GenerationDistance /= mod;
-            yield return new WaitForSeconds(1);
-            GenerationDistance *= mod;
-        }
-        
     }
 }

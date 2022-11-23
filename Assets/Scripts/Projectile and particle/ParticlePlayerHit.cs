@@ -6,7 +6,7 @@ namespace Projectile_and_particle
     {
         private void OnParticleCollision(GameObject other)
         {
-            if (other.TryGetComponent(out Player _)) GlobalEventManager.SendOnPlayerHit();
+            if (other.TryGetComponent(out Player _)) GlobalEventManager.SendOnEnemyHit();
         }
     }
 }

@@ -5,19 +5,17 @@ using Weapons;
 
 namespace Projectile_and_particle
 {
-    [RequireComponent(typeof(Rigidbody), typeof(ParticleSystem), typeof(Collider))]
+    [RequireComponent(typeof(Rigidbody),typeof(Collider))]
     public class FireBall : Projectile, IWeapon
     {
         private Collider _collider;
         [SerializeField]
         private float _timeToActiveCollisionBeforeThrow;
         [SerializeField]
-        private GameObject _explosion;
-        [SerializeField]
         private float _angleInDegrees;
         private Rigidbody _rb;
-        private float _g;
         private Transform _transform;
+        private float _g;
         
         private void Start()
         {
@@ -26,10 +24,12 @@ namespace Projectile_and_particle
             _collider = GetComponent<Collider>();
             _transform = transform;
             if (CanHitPlayer) _collider.enabled = false;
+            GlobalEventManager.OnProjectileAttackerDestroy += DestroyWithEffect;
         }
 
         public override void Throw(Vector3 targetPosition)
         {
+            _audioSource.Play();
             _transform.parent = null;
             _rb.isKinematic = false;
             float angle = _angleInDegrees * Mathf.PI / 180;
@@ -62,17 +62,11 @@ namespace Projectile_and_particle
             if (collisionGameObject.TryGetComponent(out Player _))
             {
                 if (!CanHitPlayer) return;
-                GlobalEventManager.SendOnPlayerHit();
-                DestroyWithEffect(collision);
+                GlobalEventManager.SendOnEnemyHit();
+                DestroyWithEffect(this);
                 return;
             }
-            DestroyWithEffect(collision);
-        }
-
-        private void DestroyWithEffect(Collision collision)
-        {
-            Instantiate(_explosion, collision.contacts[0].point, Quaternion.identity);
-            Destroy(gameObject);
+            DestroyWithEffect(this);
         }
 
         public void Accept(IWeaponVisitor visitor)

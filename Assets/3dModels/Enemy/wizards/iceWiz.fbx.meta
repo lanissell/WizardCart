@@ -66,7 +66,15 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.3839779
+      - time: 0.12949818
+        functionName: PlaySound
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 32d655820796dea41ba809bf6271b2c1,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.35412714
         functionName: ThrowProjectile
         data: 
         objectReferenceParameter: {instanceID: 0}

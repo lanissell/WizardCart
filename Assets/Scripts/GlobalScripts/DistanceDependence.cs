@@ -16,8 +16,6 @@ public class DistanceDependence : MonoBehaviour, INeedBeSingle
     private AnimationCurve _speedFromDistance;
     private ChunksPlacer _chunksPlacer;
 
-    [SerializeField]
-    private TextMeshProUGUI _scoreText;
     private void Start()
     {
         _chunksPlacer = Singleton<ChunksPlacer>.Instance;
@@ -27,7 +25,6 @@ public class DistanceDependence : MonoBehaviour, INeedBeSingle
     {
         TotalDistance = -_chunksPlacer.ThisTransform.position.z;
         CurvesEvaluate();
-        _scoreText.text = $"{Mathf.RoundToInt(TotalDistance)}";
     }
 
     private void CurvesEvaluate()

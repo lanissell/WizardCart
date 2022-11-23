@@ -9696,6 +9696,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lightning: {fileID: 1828774885056883035}
+  _explosion: {fileID: 4392333013709349873, guid: b44812cca8ab01d46b71b4a72bea367a,
+    type: 3}
 --- !u!1 &1828774886073970991
 GameObject:
   m_ObjectHideFlags: 0

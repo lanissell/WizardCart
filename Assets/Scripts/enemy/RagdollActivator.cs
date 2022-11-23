@@ -5,7 +5,6 @@ namespace enemy
 {
     public class RagdollActivator : MonoBehaviour
     {
-        public event Action OnRagdollActive;
         private Animator _animator;
         [SerializeField]
         private Rigidbody[] _rigidbodies;
@@ -27,7 +26,7 @@ namespace enemy
         private void ActivateRagdoll()
         {
             _animator.enabled = false;
-            OnRagdollActive?.Invoke();
+            GlobalEventManager.SendOnRagdollActive(transform);
             foreach (EnemyLimb limb in _enemyLimbs)
             {
                 limb.OnLimbHit -= ActivateRagdoll;
