@@ -24,7 +24,7 @@ namespace Projectile_and_particle
             _collider = GetComponent<Collider>();
             _transform = transform;
             if (CanHitPlayer) _collider.enabled = false;
-            GlobalEventManager.OnProjectileAttackerDestroy += DestroyWithEffect;
+            GlobalEventManager.OnEnemyDie += DestroyWithEffect;
         }
 
         public override void Throw(Vector3 targetPosition)
@@ -58,15 +58,15 @@ namespace Projectile_and_particle
         private void OnCollisionEnter(Collision collision)
         {
             var collisionGameObject = collision.gameObject;
-            if (collisionGameObject.TryGetComponent(out IWeaponVisitor visitor)) Accept(visitor);
-            if (collisionGameObject.TryGetComponent(out Player _))
-            {
-                if (!CanHitPlayer) return;
-                GlobalEventManager.SendOnEnemyHit();
-                DestroyWithEffect(this);
-                return;
+            if (CanHitPlayer)
+            { 
+                if (collisionGameObject.TryGetComponent(out Player _)) GlobalEventManager.SendOnEnemyHit();
             }
-            DestroyWithEffect(this);
+            else
+            {
+                if (collisionGameObject.TryGetComponent(out IWeaponVisitor visitor)) Accept(visitor);
+            }
+            DestroyWithEffect(Parent);
         }
 
         public void Accept(IWeaponVisitor visitor)

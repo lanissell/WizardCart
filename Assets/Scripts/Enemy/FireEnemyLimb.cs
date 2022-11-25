@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace Enemy
 {
+    [RequireComponent(typeof(Rigidbody))]
     public class FireEnemyLimb: EnemyLimb
     {
         public override void Visit(FireBall fireBall)

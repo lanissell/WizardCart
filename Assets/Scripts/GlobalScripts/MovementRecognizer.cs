@@ -8,16 +8,19 @@ using UnityEngine.XR.Interaction.Toolkit;
 [RequireComponent(typeof(AudioSource))]
 public class MovementRecognizer : MonoBehaviour
 {
+    [Header("Creation")]
     [SerializeField]
     private bool _creationMode;
     [SerializeField]
     private string _newGestureName;
+    [Header("Sources")]
     [SerializeField]
     private XRNode _inputSource;
     [SerializeField]
     private InputHelpers.Button _inputButton;
     [SerializeField]
     private Transform _movementSource;
+    [Header("Thresholds")]
     [SerializeField]
     private float _recognizeThreshold;
     [SerializeField]

@@ -169,7 +169,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fadce203178446198fc5db9ca0790b22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ActivateRagdoll: {fileID: 0}
+  Parent: {fileID: 0}
+  Rigidbody: {fileID: 0}
 --- !u!1 &311610742051682275
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,7 +263,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fadce203178446198fc5db9ca0790b22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ActivateRagdoll: {fileID: 0}
+  Parent: {fileID: 0}
+  Rigidbody: {fileID: 0}
 --- !u!1 &319644338189993215
 GameObject:
   m_ObjectHideFlags: 0
@@ -532,7 +534,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fadce203178446198fc5db9ca0790b22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ActivateRagdoll: {fileID: 0}
+  Parent: {fileID: 0}
+  Rigidbody: {fileID: 0}
 --- !u!1 &454105077881431703
 GameObject:
   m_ObjectHideFlags: 0
@@ -962,7 +965,67 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fadce203178446198fc5db9ca0790b22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ActivateRagdoll: {fileID: 0}
+  Parent: {fileID: 0}
+  Rigidbody: {fileID: 0}
+--- !u!1 &1275961427826833852
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2086834114807940757}
+  - component: {fileID: 2181877559896499833}
+  - component: {fileID: 1631463290035477656}
+  m_Layer: 2
+  m_Name: WeponMagneticArea
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2086834114807940757
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1275961427826833852}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0.134}
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4384635430549760702}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &2181877559896499833
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1275961427826833852}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1631463290035477656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1275961427826833852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b2394765f79ba946b0e70aeea9b49d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _areaSize: 1.6
 --- !u!1 &1371612698961621690
 GameObject:
   m_ObjectHideFlags: 0
@@ -995,65 +1058,6 @@ Transform:
   m_Father: {fileID: 5000897106045202510}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1588828596423506950
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5954606827135042232}
-  - component: {fileID: 5931509235965762429}
-  - component: {fileID: 1127999419444022216}
-  m_Layer: 0
-  m_Name: WeponMagneticArea
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5954606827135042232
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1588828596423506950}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0.24}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4384635430549760702}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &5931509235965762429
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1588828596423506950}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1127999419444022216
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1588828596423506950}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b2394765f79ba946b0e70aeea9b49d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _areaSize: 0
 --- !u!1 &1630834229890435595
 GameObject:
   m_ObjectHideFlags: 0
@@ -1287,7 +1291,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fadce203178446198fc5db9ca0790b22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ActivateRagdoll: {fileID: 0}
+  Parent: {fileID: 0}
+  Rigidbody: {fileID: 0}
 --- !u!1 &2089165182524430654
 GameObject:
   m_ObjectHideFlags: 0
@@ -1688,7 +1693,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fadce203178446198fc5db9ca0790b22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ActivateRagdoll: {fileID: 0}
+  Parent: {fileID: 0}
+  Rigidbody: {fileID: 0}
 --- !u!1 &3095495813724981274
 GameObject:
   m_ObjectHideFlags: 0
@@ -2250,7 +2256,7 @@ Transform:
   - {fileID: 6580790608940028510}
   - {fileID: 7868053687956011821}
   - {fileID: 2891329661326954398}
-  - {fileID: 5954606827135042232}
+  - {fileID: 2086834114807940757}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2286,20 +2292,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b10becf155a967e4aac78b57c529b07f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rigidbodies:
-  - {fileID: 4275010938249114357}
-  - {fileID: 4275010937655098886}
-  - {fileID: 4275010938178758667}
-  - {fileID: 4275010938152097116}
-  - {fileID: 4275010937332310311}
-  - {fileID: 4275010936742173343}
-  - {fileID: 4275010937777042889}
-  - {fileID: 6010036082706661963}
-  - {fileID: 4275010936971074385}
-  - {fileID: 457489006374832520}
-  - {fileID: 4275010937590566232}
-  - {fileID: 4275010937749239267}
-  - {fileID: 4275010937059959693}
   _enemyLimbs:
   - {fileID: 1443674627991425408}
   - {fileID: 4152793421500139769}
@@ -2325,8 +2317,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3995f5e663c77742984df5164a6738a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _vewDist: 80
-  _destroyAfterDieTime: 25
 --- !u!114 &6050696458382300238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2341,7 +2331,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectilePrefab: {fileID: 6891208394219902272, guid: eeb64f6db7cadbe46861e832e91fee6f,
     type: 3}
-  _spawnPoint: {fileID: 4275010937711990613}
+  _projectileSpawnPoint: {fileID: 4275010937711990613}
   _attackDist: 40
   _attackDelay: 10
 --- !u!1 &4062003569264066267
@@ -2480,7 +2470,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fadce203178446198fc5db9ca0790b22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ActivateRagdoll: {fileID: 0}
+  Parent: {fileID: 0}
+  Rigidbody: {fileID: 0}
 --- !u!1 &4133936383333610748
 GameObject:
   m_ObjectHideFlags: 0
@@ -2780,7 +2771,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fadce203178446198fc5db9ca0790b22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ActivateRagdoll: {fileID: 0}
+  Parent: {fileID: 0}
+  Rigidbody: {fileID: 0}
 --- !u!1 &4504686329826787001
 GameObject:
   m_ObjectHideFlags: 0
@@ -2996,7 +2988,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fadce203178446198fc5db9ca0790b22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ActivateRagdoll: {fileID: 0}
+  Parent: {fileID: 0}
+  Rigidbody: {fileID: 0}
 --- !u!1 &4875983488870096311
 GameObject:
   m_ObjectHideFlags: 0
@@ -3554,7 +3547,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fadce203178446198fc5db9ca0790b22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ActivateRagdoll: {fileID: 0}
+  Parent: {fileID: 0}
+  Rigidbody: {fileID: 0}
 --- !u!1 &7228285685521105254
 GameObject:
   m_ObjectHideFlags: 0
@@ -3955,7 +3949,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fadce203178446198fc5db9ca0790b22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ActivateRagdoll: {fileID: 0}
+  Parent: {fileID: 0}
+  Rigidbody: {fileID: 0}
 --- !u!1 &7919379643288306368
 GameObject:
   m_ObjectHideFlags: 0
@@ -4385,7 +4380,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fadce203178446198fc5db9ca0790b22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ActivateRagdoll: {fileID: 0}
+  Parent: {fileID: 0}
+  Rigidbody: {fileID: 0}
 --- !u!1 &8981966328737780454
 GameObject:
   m_ObjectHideFlags: 0

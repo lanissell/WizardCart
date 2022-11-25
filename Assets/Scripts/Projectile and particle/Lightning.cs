@@ -6,11 +6,15 @@ namespace Projectile_and_particle
     {
         [SerializeField]
         private GameObject _lightning;
-        
+
+        private void Start()
+        {
+            GlobalEventManager.OnEnemyDie += DestroyWithEffect;
+        }
+
         public override void Throw(Vector3 targetPosition)
         {
             _audioSource.Play();
-            GlobalEventManager.OnProjectileAttackerDestroy += DestroyWithEffect;
             CanHitPlayer = true;
             transform.LookAt(targetPosition);
             _lightning.SetActive(true);

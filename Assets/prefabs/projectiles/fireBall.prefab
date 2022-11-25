@@ -4892,7 +4892,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 651c7f08942b58047892187bf16906b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audioSource: {fileID: 0}
+  _audioSource: {fileID: 106418538982366793}
   _explosion: {fileID: 4392333013709349873, guid: dfcb23bc114b43f45b6a680df156fcdd,
     type: 3}
   _timeToActiveCollisionBeforeThrow: 1
@@ -5046,7 +5046,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_ThrowVelocityScale: 1.7
+  m_ThrowVelocityScale: 1.5
   m_ThrowAngularVelocityScale: 0.7
   m_ForceGravityOnDetach: 0
   m_RetainTransformParent: 0
@@ -5065,6 +5065,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _magneticSpeed: 0
   _rotationSpeed: 0
+  _speedTresHold: 0
 --- !u!82 &106418538982366793
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5076,7 +5077,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 5969272908297209416, guid: 70f3b2939b8f77f43b4dd06bc1ec6c8c,
     type: 2}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 61df996dcf24ab04fa64fa5431d3d168, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

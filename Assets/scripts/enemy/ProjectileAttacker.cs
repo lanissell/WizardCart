@@ -15,12 +15,14 @@ namespace enemy
         private Projectile _projectileObject;
         [FormerlySerializedAs("_spawnPoint")] [SerializeField]
         private Transform _projectileSpawnPoint;
+        
         [Header("Attack")]
         [SerializeField]
         private float _attackDist;
         [SerializeField]
         private float _attackDelay;
         private bool _isAttack;
+        
         private Vector3 _targetPosition;
         private Animator _animator;
         private Transform _transform;
@@ -29,7 +31,7 @@ namespace enemy
         
         private void Start()
         {
-            GlobalEventManager.OnRagdollActive += DestroyAttacker;
+            GlobalEventManager.OnEnemyDie += DestroyAttacker;
             _animator = GetComponent<Animator>();
             _attackDist = Random.Range(_attackDist / 1.5f, _attackDist);
             _transform = transform;
@@ -43,6 +45,12 @@ namespace enemy
                 Attack();
             }
         }
+        
+        private bool CheckAttackPossibility(float dist)
+        {
+            if (_isAttack) return false;
+            return dist < _attackDist;
+        }
 
         private void Attack()
         {
@@ -52,16 +60,12 @@ namespace enemy
             StartCoroutine(AttackDelay());
         }
 
-        private bool CheckAttackPossibility(float dist)
-        {
-            if (_isAttack) return false;
-            return dist < _attackDist;
-        }
 
         private void CrateProjectile()
         {
             _projectileObject = Instantiate(_projectilePrefab, _projectileSpawnPoint);
-            _projectileObject.SetCanHitPlayer(true);
+            _projectileObject.SetAbilityToHitPlayer(true);
+            _projectileObject.Parent = _transform;
         }
 
         private IEnumerator AttackDelay()
@@ -79,8 +83,7 @@ namespace enemy
         private void DestroyAttacker(Transform destroyTransform)
         {
             if (destroyTransform != _transform) return;
-            GlobalEventManager.OnRagdollActive -= DestroyAttacker;
-            GlobalEventManager.SendOnProjectileAttackerDestroy(_projectileObject);
+            GlobalEventManager.OnEnemyDie -= DestroyAttacker;
             Destroy(this);
         }
     }

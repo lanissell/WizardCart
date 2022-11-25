@@ -1,13 +1,12 @@
 ﻿using UnityEngine;
-public abstract class Singleton<T> : Singleton where T : MonoBehaviour, INeedBeSingle
+public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour, INeedBeSingle
 {
     private static T _instance;
-
+    
     public static T Instance
     {
         get
-        { 
-            if (Quitting) return null; 
+        {
             if (_instance != null) return _instance;
             var instances = FindObjectsOfType<T>();
             var count = instances.Length;
@@ -22,14 +21,5 @@ public abstract class Singleton<T> : Singleton where T : MonoBehaviour, INeedBeS
             return _instance = new GameObject(name).AddComponent<T>(); //Create new instance if it isn't found
         }
     }
-}
 
-public abstract class Singleton : MonoBehaviour
-{
-    static protected bool Quitting { get; private set; }
-
-    private void OnApplicationQuit()
-    {
-        Quitting = true;
-    }
 }

@@ -2,17 +2,18 @@ using UnityEngine;
 
 namespace Projectile_and_particle
 {
+    [RequireComponent(typeof(ParticleSystem))]
     public class IceShard : Projectile
     {
-        private ParticleSystem _particleSystem;
         [SerializeField] 
         private ParticleSystem _chargeEffect;
+        private ParticleSystem _particleSystem;
 
         private void Start()
         {
+            GlobalEventManager.OnEnemyDie += DestroyWithEffect;
             _particleSystem = GetComponent<ParticleSystem>();
             Destroy(Instantiate(_chargeEffect,transform), 3f);
-            GlobalEventManager.OnProjectileAttackerDestroy += DestroyWithEffect;
         }
         
         public override void Throw(Vector3 targetPosition)
@@ -23,6 +24,5 @@ namespace Projectile_and_particle
             Destroy(gameObject, 5f);
         }
 
-        
     }
 }

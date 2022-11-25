@@ -299,7 +299,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_ThrowVelocityScale: 3
+  m_ThrowVelocityScale: 2
   m_ThrowAngularVelocityScale: 1
   m_ForceGravityOnDetach: 0
   m_RetainTransformParent: 0
@@ -356,7 +356,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _magneticSpeed: 5
   _rotationSpeed: 50
-  _target: {fileID: 0}
+  _speedTresHold: 2
 --- !u!1 &8600189806761319842
 GameObject:
   m_ObjectHideFlags: 0

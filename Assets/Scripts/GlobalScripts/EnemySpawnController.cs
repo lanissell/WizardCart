@@ -6,6 +6,7 @@ public class EnemySpawnController : MonoBehaviour, INeedBeSingle
     [SerializeField]
     private float _enemySpawnDelay;
     private float _spawnStartTime;
+    
     private void Start()
     {
         _spawnStartTime = Time.time - _enemySpawnDelay;

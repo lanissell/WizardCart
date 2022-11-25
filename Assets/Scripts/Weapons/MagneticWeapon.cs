@@ -12,6 +12,8 @@ namespace Weapons
         private float _magneticSpeed;
         [SerializeField]
         private float _rotationSpeed;
+        [SerializeField]
+        private float _speedTresHold;
         private Rigidbody _rb;
         private Transform _transform;
         private Transform _target;
@@ -20,17 +22,14 @@ namespace Weapons
         {
             _rb = GetComponent<Rigidbody>();
             _transform = transform;
-            _rb.AddTorque(_transform.up * 1000);
         }
 
         private void Update()
         {
-            if (_target == null) return;
-            if (_rb.velocity.magnitude < 2f) return;
+            if (!_target) return;
+            if (_rb.velocity.magnitude < _speedTresHold) return;
             RotateToTarget(_target);
             _rb.AddForce(_transform.forward * (Time.deltaTime * _magneticSpeed * 1000));
-
-
         }
 
         private void RotateToTarget(Transform target)

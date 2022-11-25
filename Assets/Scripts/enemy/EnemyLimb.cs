@@ -6,10 +6,18 @@ using Weapons;
 
 namespace enemy
 {
-    [RequireComponent(typeof(StickyObject))]
+    [RequireComponent(typeof(Rigidbody))]
     public class EnemyLimb : MonoBehaviour, IWeaponVisitor
     {
-        public event Action OnLimbHit; 
+        [HideInInspector]
+        public Transform Parent;
+        [HideInInspector]
+        public Rigidbody Rigidbody;
+
+        private void Awake()
+        {
+            Rigidbody = GetComponent<Rigidbody>();
+        }
 
         public void Visit(Sharp sharp)
         {
@@ -23,7 +31,7 @@ namespace enemy
         
         private void DefaultReaction()
         {
-            OnLimbHit?.Invoke();
+            GlobalEventManager.SendOnEnemyDie(Parent);
         }
     }
 }

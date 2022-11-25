@@ -13,6 +13,7 @@ namespace Weapons
         private void Start()
         {
             _collider = GetComponent<SphereCollider>();
+            _collider.isTrigger = true;
             _collider.radius = _areaSize;
         }
     }

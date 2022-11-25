@@ -7,14 +7,14 @@ public static class GlobalEventManager
 {
         public static event Action OnEnemyHit;
         public static event Action<Projectile> OnProjectileAttackerDestroy;
-        public static event Action<Transform> OnRagdollActive;
+        public static event Action<Transform> OnEnemyDie;
         public static event Action OnRunStart;
         
         public static void SendOnEnemyHit() => OnEnemyHit?.Invoke();
         
         public static void SendOnProjectileAttackerDestroy(Projectile projectile) => OnProjectileAttackerDestroy?.Invoke(projectile);
 
-        public static void SendOnRagdollActive(Transform transform) => OnRagdollActive?.Invoke(transform);
+        public static void SendOnEnemyDie(Transform transform) => OnEnemyDie?.Invoke(transform);
 
         public static void SendOnRunStart() => OnRunStart?.Invoke();
 

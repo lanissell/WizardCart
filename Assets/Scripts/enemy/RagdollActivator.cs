@@ -1,39 +1,39 @@
-using System;
+using System.Security.Cryptography;
 using UnityEngine;
 
 namespace enemy
 {
     public class RagdollActivator : MonoBehaviour
     {
-        private Animator _animator;
-        [SerializeField]
-        private Rigidbody[] _rigidbodies;
         [SerializeField]
         private EnemyLimb[] _enemyLimbs;
+        private Animator _animator;
+        private Transform _transform;
         
-
-        private void Awake()
-        {
-            foreach (Rigidbody rb in _rigidbodies) rb.isKinematic = true;
-            foreach (EnemyLimb c in _enemyLimbs) c.OnLimbHit += ActivateRagdoll;
-        }
-
         private void Start()
         {
+            GlobalEventManager.OnEnemyDie += ActivateRagdoll;
+            _transform = transform;
             _animator = GetComponent<Animator>();
-        }
-
-        private void ActivateRagdoll()
-        {
-            _animator.enabled = false;
-            GlobalEventManager.SendOnRagdollActive(transform);
             foreach (EnemyLimb limb in _enemyLimbs)
             {
-                limb.OnLimbHit -= ActivateRagdoll;
+                limb.Parent = _transform;
+                limb.Rigidbody.isKinematic = true;
+            }
+            
+        }
+
+        private void ActivateRagdoll(Transform diedTransform)
+        {
+            if(_transform != diedTransform) return;
+            _animator.enabled = false;
+            foreach (EnemyLimb limb in _enemyLimbs)
+            {
+                limb.Rigidbody.isKinematic = false;
                 Destroy(limb);
             }
-            foreach (Rigidbody rb in _rigidbodies) rb.isKinematic = false;
-
+            Destroy(this);
+            GlobalEventManager.OnEnemyDie -= ActivateRagdoll;
         }
 
     }

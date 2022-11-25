@@ -4131,7 +4131,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     minKillSpeed: 0
-    maxKillSpeed: 4
+    maxKillSpeed: 2
     radiusScale: 0.1
     collidesWith:
       serializedVersion: 2
@@ -5174,6 +5174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49a3cde6f50c7054ebc3fa2cb6ee0ca3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Parent: {fileID: 0}
   _audioSource: {fileID: 4408968488185210982}
   _explosion: {fileID: 4392333013709349873, guid: 3dd7fc916ec89e349b285cc0e8407eb8,
     type: 3}

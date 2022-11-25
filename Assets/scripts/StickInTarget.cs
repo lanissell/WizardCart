@@ -1,10 +1,10 @@
 using System.Linq;
-using Enemy;
 using props;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using Weapons;
 
+[RequireComponent(typeof(Rigidbody))]
 public class StickInTarget : MonoBehaviour
 {
     [SerializeField] private Collider _sharp;
@@ -39,8 +39,9 @@ public class StickInTarget : MonoBehaviour
 
     private void Stick(Collision collision)
     {
-        _transform.parent = collision.transform;
         _transform.position = collision.contacts[0].point;
+        _transform.rotation = Quaternion.identity;
+        _transform.parent = collision.transform;
     }
     
 }
