@@ -5178,6 +5178,7 @@ MonoBehaviour:
   _audioSource: {fileID: 4408968488185210982}
   _explosion: {fileID: 4392333013709349873, guid: 3dd7fc916ec89e349b285cc0e8407eb8,
     type: 3}
+  _destroyAfterTrowTime: 5
   _chargeEffect: {fileID: 5907293762045373274, guid: 3877ba8280231d2499b276fc06b4c9bf,
     type: 3}
 --- !u!114 &6526952566687814554
@@ -5205,7 +5206,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 935ad59b529f3aa4b89a18c29dfb9573, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.8
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -5213,8 +5214,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 7
-  MaxDistance: 40
+  MinDistance: 1
+  MaxDistance: 100
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0

@@ -9696,9 +9696,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fb7a67e4d5d43a8bd22c82bc4802a98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Parent: {fileID: 0}
   _audioSource: {fileID: 7022375916890468873}
   _explosion: {fileID: 4392333013709349873, guid: b44812cca8ab01d46b71b4a72bea367a,
     type: 3}
+  _destroyAfterTrowTime: 3.5
   _lightning: {fileID: 1828774885056883035}
 --- !u!82 &7022375916890468873
 AudioSource:
@@ -9711,11 +9713,11 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 5969272908297209416, guid: 70f3b2939b8f77f43b4dd06bc1ec6c8c,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: f5f1778daaf82b8409c36a0c6c47fd41, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_audioClip: {fileID: 8300000, guid: 701c5041b844a674fa92b8c7ff8be231, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.7
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -9757,7 +9759,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

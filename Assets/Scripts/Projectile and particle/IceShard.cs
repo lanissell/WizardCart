@@ -5,6 +5,8 @@ namespace Projectile_and_particle
     [RequireComponent(typeof(ParticleSystem))]
     public class IceShard : Projectile
     {
+        [SerializeField]
+        private float _destroyAfterTrowTime;
         [SerializeField] 
         private ParticleSystem _chargeEffect;
         private ParticleSystem _particleSystem;
@@ -21,7 +23,7 @@ namespace Projectile_and_particle
             _audioSource.Play();
             _particleSystem.Play();
             transform.parent = null;
-            Destroy(gameObject, 5f);
+            Destroy(gameObject, _destroyAfterTrowTime);
         }
 
     }

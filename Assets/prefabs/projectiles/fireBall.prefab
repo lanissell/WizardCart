@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 3998931605227784030}
   - component: {fileID: 6891208394219902272}
   - component: {fileID: 3144410236478973512}
-  - component: {fileID: -5902034144103465576}
   - component: {fileID: 106418538982366793}
   m_Layer: 0
   m_Name: FireBall
@@ -4892,6 +4891,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 651c7f08942b58047892187bf16906b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Parent: {fileID: 0}
   _audioSource: {fileID: 106418538982366793}
   _explosion: {fileID: 4392333013709349873, guid: dfcb23bc114b43f45b6a680df156fcdd,
     type: 3}
@@ -4956,7 +4956,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: -5902034144103465576}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 6
@@ -5051,21 +5051,6 @@ MonoBehaviour:
   m_ForceGravityOnDetach: 0
   m_RetainTransformParent: 0
   m_AttachPointCompatibilityMode: 0
---- !u!114 &-5902034144103465576
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3606797594084474306}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 900d7c07014124141a1915e732a99f4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _magneticSpeed: 0
-  _rotationSpeed: 0
-  _speedTresHold: 0
 --- !u!82 &106418538982366793
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5078,8 +5063,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 5969272908297209416, guid: 70f3b2939b8f77f43b4dd06bc1ec6c8c,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 61df996dcf24ab04fa64fa5431d3d168, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -5088,7 +5073,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 50
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -5123,7 +5108,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -10001,7 +9986,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: f5f1778daaf82b8409c36a0c6c47fd41, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -10010,9 +9995,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 50
+  MaxDistance: 500
   Pan2D: 0
-  rolloffMode: 2
+  rolloffMode: 0
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0

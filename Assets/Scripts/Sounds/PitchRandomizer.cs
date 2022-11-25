@@ -1,23 +1,26 @@
 using UnityEngine;
 
-public class PitchRandomizer : MonoBehaviour
+namespace Sounds
 {
-    [Range(-3,1f)]
-    [SerializeField]
-    private float _minPitch;
-    [Range(1,3)]
-    [SerializeField]
-    private float _maxPitch;
-    [SerializeField]
-    private AudioSource[] _audioSources;
-    
-    private void Start()
+    public class PitchRandomizer : MonoBehaviour
     {
-        if (_audioSources.Length == 0) return;
-        foreach (AudioSource audioSource in _audioSources)
+        [Range(-3,1f)]
+        [SerializeField]
+        private float _minPitch;
+        [Range(1,3)]
+        [SerializeField]
+        private float _maxPitch;
+        [SerializeField]
+        private AudioSource[] _audioSources;
+    
+        private void Start()
         {
-            audioSource.pitch = Random.Range(_minPitch, _maxPitch);
+            if (_audioSources.Length == 0) return;
+            foreach (AudioSource audioSource in _audioSources)
+            {
+                audioSource.pitch = Random.Range(_minPitch, _maxPitch);
+            }
         }
-    }
 
+    }
 }

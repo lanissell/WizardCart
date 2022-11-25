@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.4
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 410087040}
-  m_IndirectSpecularColor: {r: 0.20033412, g: 0.27044746, b: 0.29184514, a: 0.4}
+  m_IndirectSpecularColor: {r: 0.20021427, g: 0.27046403, b: 0.2918968, a: 0.4}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8528,7 +8528,6 @@ MonoBehaviour:
   - {fileID: 4004414879622688772, guid: 495fb4aa1cefb304696063de7bcb37fb, type: 3}
   - {fileID: 2923773003411557326, guid: 9a7d6777346006e438ed3b5cd36776a4, type: 3}
   - {fileID: 5925433370775613715, guid: d0607b7cb5bca2741aa34ee703c68f77, type: 3}
-  EnemyParent: {fileID: 1460149833}
   _enemySpawnDelay: 5
 --- !u!1001 &516982305
 PrefabInstance:
@@ -9395,7 +9394,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 1205813031007099796, guid: 70f3b2939b8f77f43b4dd06bc1ec6c8c,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: c363a500669fdd04c83f0fbc50c5c4d9, type: 3}
+  m_audioClip: {fileID: 8300000, guid: af73a6b1b271bf84ab78ab2741023a7b, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.24
   m_Pitch: 1

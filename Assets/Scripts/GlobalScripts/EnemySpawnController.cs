@@ -1,8 +1,8 @@
 using UnityEngine;
+
 public class EnemySpawnController : MonoBehaviour, INeedBeSingle
 {
     public GameObject[] EnemyPrefabs;
-    public Transform EnemyParent;    
     [SerializeField]
     private float _enemySpawnDelay;
     private float _spawnStartTime;
