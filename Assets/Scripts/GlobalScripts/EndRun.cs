@@ -1,27 +1,39 @@
 using Chunk;
+using Save;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EndRun : MonoBehaviour
 {
+    private DistanceDependence _distanceDependence;
+    
     private void Start()
     {
         GlobalEventManager.OnEnemyHit += EndRound;
+        _distanceDependence = Singleton<DistanceDependence>.Instance;
     }
 
-    private static void EndRound()
+    private void EndRound()
     {
-        print("hit");
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SaveScore();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    private void SaveScore()
+    {
+        var data = BinarySaveSystem.Load();
+        data.LastScore = (int)_distanceDependence.TotalDistance;
+        BinarySaveSystem.Save(data);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        // var parent = other.transform.parent;
-        // if (parent == null) return;
-        // if (parent.TryGetComponent(out Obstacle _))
-        // {
-        //     EndRound();
-        // }
+        var parent = other.transform.parent;
+        if (parent == null) return;
+        if (parent.TryGetComponent(out ObstacleActivator _))
+        {
+            EndRound();
+        }
     }
 
 }

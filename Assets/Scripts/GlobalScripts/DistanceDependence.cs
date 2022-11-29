@@ -1,7 +1,6 @@
 using chunk;
-using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
+
 public class DistanceDependence : MonoBehaviour, INeedBeSingle
 {
     public float TotalDistance;

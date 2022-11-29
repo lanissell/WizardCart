@@ -1,18 +1,22 @@
 using System.Collections;
 using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class KnifeSpawner : MonoBehaviour
 {
-    public GameObject Prefab;
+    [SerializeField]
+    private float _maxCount;
+    [SerializeField]
+    private GameObject _prefab;
+    
     private IEnumerator Start()
     {
+        Transform thisTransform = transform;
         while (true)
         {
             yield return new WaitForSeconds(5);
-            if (transform.childCount < 30) 
-                Instantiate(Prefab, transform.position, quaternion.identity, transform);
+            if (thisTransform.childCount < _maxCount) 
+                Instantiate(_prefab, thisTransform.position, quaternion.identity, thisTransform);
         }
     }
 }
