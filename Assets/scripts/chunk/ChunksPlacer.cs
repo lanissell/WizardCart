@@ -8,7 +8,8 @@ namespace chunk
 {
     public class ChunksPlacer : MonoBehaviour, INeedBeSingle
     {
-        public float GenerationDistance;
+        [SerializeField]
+        private float _generationDistance;
         public Transform ThisTransform;
         private Transform _player;
         [Header("Chunks")]
@@ -23,18 +24,18 @@ namespace chunk
         {
             _spawnedChunks.Add(_firstChunk);
             _chunksForSpawn = _forestChunkPrefabs;
-            if (Camera.main != null) _player = Camera.main.transform;
+            _player = Camera.main.transform;
             ThisTransform = transform;
         }
 
         private void Update()
         {
-            if (!(Vector3.Distance(_spawnedChunks[^1].End.position, _player.position) < GenerationDistance)) return;
-            SpawnChunk();
-            DestroyChunk();
+            if (!(Vector3.Distance(_spawnedChunks[^1].End.position, _player.position) < _generationDistance)) return;
+            SpawnNewChunk();
+            DestroyFartherChunk();
         }
 
-        private void SpawnChunk()
+        private void SpawnNewChunk()
         {
             var newChunk = Instantiate(_chunksForSpawn[Random.Range(0, _chunksForSpawn.Length)], ThisTransform);
             newChunk.RotationPoint.rotation = new Quaternion(0, 180 * Random.Range(0, 2), 0, 0);
@@ -42,9 +43,9 @@ namespace chunk
             _spawnedChunks.Add(newChunk);
         }
 
-        private void DestroyChunk()
+        private void DestroyFartherChunk()
         {
-            if (!(Vector3.Distance(_spawnedChunks[0].End.position, _player.position) > GenerationDistance)) return;
+            if (!(Vector3.Distance(_spawnedChunks[0].End.position, _player.position) > _generationDistance)) return;
             Destroy(_spawnedChunks[0].gameObject);
             _spawnedChunks.RemoveAt(0);
         }

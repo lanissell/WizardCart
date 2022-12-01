@@ -33,5 +33,6 @@ namespace enemy
         {
             GlobalEventManager.SendOnEnemyDie(Parent);
         }
+        
     }
 }

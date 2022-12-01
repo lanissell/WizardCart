@@ -56,12 +56,12 @@ namespace enemy
         {
             _isAttack = true;
             _animator.SetTrigger(Atk);
-            CrateProjectile();
+            CreateProjectile();
             StartCoroutine(AttackDelay());
         }
 
 
-        private void CrateProjectile()
+        private void CreateProjectile()
         {
             _projectileObject = Instantiate(_projectilePrefab, _projectileSpawnPoint);
             _projectileObject.SetAbilityToHitPlayer(true);

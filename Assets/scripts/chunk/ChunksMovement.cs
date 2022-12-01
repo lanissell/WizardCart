@@ -26,7 +26,7 @@ namespace chunk
         private void MoveChunk()
         {
             _moveSpeed = _distanceDependence.MoveSpeed;
-            _transform.Translate(_movementDirection * (Time.deltaTime * _moveSpeed));
+            _transform.Translate(_movementDirection * (Time.fixedDeltaTime * _moveSpeed));
         }
 
         private void ActivateChunkMovement()
