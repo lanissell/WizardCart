@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using ProjectilesAndParticles;
+using UnityEngine;
 
 namespace Projectile_and_particle
 {
@@ -9,14 +10,9 @@ namespace Projectile_and_particle
         [SerializeField]
         private GameObject _lightning;
 
-        private void Start()
-        {
-            GlobalEventManager.OnEnemyDie += DestroyWithEffect;
-        }
-
         public override void Throw(Vector3 targetPosition)
         {
-            CanHitPlayer = true;
+            canHitPlayer = true;
             transform.LookAt(targetPosition);
             _lightning.SetActive(true);
             _audioSource.Play();

@@ -4519,7 +4519,7 @@ GameObject:
   - component: {fileID: 264422843}
   - component: {fileID: 264422844}
   m_Layer: 0
-  m_Name: MaiCart
+  m_Name: MainCart
   m_TagString: MainCart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9362,7 +9362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e8d13c44017eef4e9ee2ac153f444db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GenerationDistance: 100
+  _generationDistance: 90
   ThisTransform: {fileID: 0}
   _firstChunk: {fileID: 2016568163}
   _forestChunkPrefabs:

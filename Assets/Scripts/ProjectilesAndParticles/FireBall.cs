@@ -3,7 +3,7 @@ using Enemy;
 using UnityEngine;
 using Weapons;
 
-namespace Projectile_and_particle
+namespace ProjectilesAndParticles
 {
     [RequireComponent(typeof(Rigidbody),typeof(Collider))]
     public class FireBall : Projectile, IWeapon
@@ -23,8 +23,7 @@ namespace Projectile_and_particle
             _rb = GetComponent<Rigidbody>();
             _collider = GetComponent<Collider>();
             _transform = transform;
-            if (CanHitPlayer) _collider.enabled = false;
-            GlobalEventManager.OnEnemyDie += DestroyWithEffect;
+            if (canHitPlayer) _collider.enabled = false;
         }
 
         public override void Throw(Vector3 targetPosition)
@@ -58,9 +57,9 @@ namespace Projectile_and_particle
         private void OnCollisionEnter(Collision collision)
         {
             var collisionGameObject = collision.gameObject;
-            if (CanHitPlayer)
+            if (canHitPlayer)
             { 
-                if (collisionGameObject.TryGetComponent(out Player _)) GlobalEventManager.SendOnEnemyHit();
+                if (collisionGameObject.TryGetComponent(out Player _)) HitPlayer();
             }
             else
             {

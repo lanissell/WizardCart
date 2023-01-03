@@ -1,13 +1,16 @@
+using System;
 using Enemy;
-using Projectile_and_particle;
+using ProjectilesAndParticles;
 using UnityEngine;
 using Weapons;
 
 public class RunStarter : MonoBehaviour, IWeaponVisitor
 {
-    public void StartRun()
+    public static event Action OnRunStarted; 
+
+    private void StartRun()
     {
-        GlobalEventManager.SendOnRunStart();
+        OnRunStarted?.Invoke();
         Destroy(this);
     }
     

@@ -9,13 +9,14 @@ public class EndRun : MonoBehaviour
     
     private void Start()
     {
-        GlobalEventManager.OnEnemyHit += EndRound;
+        HittingPlayer.OnPlayerHitted += EndRound;
         _distanceDependence = Singleton<DistanceDependence>.Instance;
     }
 
     private void EndRound()
     {
         SaveScore();
+        HittingPlayer.OnPlayerHitted -= EndRound;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
@@ -24,16 +25,6 @@ public class EndRun : MonoBehaviour
         var data = BinarySaveSystem.Load();
         data.LastScore = (int)_distanceDependence.TotalDistance;
         BinarySaveSystem.Save(data);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        var parent = other.transform.parent;
-        if (parent == null) return;
-        if (parent.TryGetComponent(out ObstacleActivator _))
-        {
-            EndRound();
-        }
     }
 
 }

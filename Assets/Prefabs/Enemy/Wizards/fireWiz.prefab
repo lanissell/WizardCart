@@ -2229,7 +2229,7 @@ GameObject:
   - component: {fileID: 4275010937182591203}
   - component: {fileID: 6050696458382300238}
   m_Layer: 0
-  m_Name: fireWiz
+  m_Name: FireWiz
   m_TagString: fireWizard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2331,7 +2331,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectilePrefab: {fileID: 6891208394219902272, guid: eeb64f6db7cadbe46861e832e91fee6f,
     type: 3}
-  _projectileSpawnPoint: {fileID: 4275010937711990613}
+  _spawnPoint: {fileID: 4275010937711990613}
   _attackDist: 40
   _attackDelay: 10
 --- !u!1 &4062003569264066267

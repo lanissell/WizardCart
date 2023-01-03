@@ -1,6 +1,7 @@
 using System;
 using Enemy;
 using Projectile_and_particle;
+using ProjectilesAndParticles;
 using UnityEngine;
 using Weapons;
 
@@ -13,6 +14,8 @@ namespace enemy
         public Transform Parent;
         [HideInInspector]
         public Rigidbody Rigidbody;
+
+        public static event Action<Transform> OnLimbCollideWithWeapon;
 
         private void Awake()
         {
@@ -31,7 +34,7 @@ namespace enemy
         
         private void DefaultReaction()
         {
-            GlobalEventManager.SendOnEnemyDie(Parent);
+            if (Parent) OnLimbCollideWithWeapon?.Invoke(Parent);
         }
         
     }

@@ -1,15 +1,16 @@
+using enemy;
 using UnityEngine;
 
-namespace Enemy
+namespace Enemies
 {
-    public class Wizard : MonoBehaviour
+    public class Wizard : Enemy
     {
         private Vector3 _targetPosition;
-
+        
         private void Start()
         {
             _targetPosition = Camera.main.transform.position;
-            GlobalEventManager.OnEnemyDie += Die;
+            EnemyLimb.OnLimbCollideWithWeapon += Die;
         }
 
         private void Update()
@@ -17,10 +18,11 @@ namespace Enemy
             transform.LookAt(new Vector3(_targetPosition.x, 0, _targetPosition.z));
         }
 
-        private void Die(Transform diedTransform)
+        protected override void Die(Transform diedTransform)
         {
             if (diedTransform != transform) return;
-            GlobalEventManager.OnEnemyDie -= Die;
+            base.Die(diedTransform);
+            EnemyLimb.OnLimbCollideWithWeapon -= Die;
             Destroy(this);
         }
     }

@@ -9,12 +9,12 @@ namespace Sounds
         private void Start()
         {
             _audioSource = GetComponent<AudioSource>();
-            GlobalEventManager.OnRunStart += PlaySound;
+            RunStarter.OnRunStarted += PlaySound;
         }
 
         private void PlaySound()
         {
-            GlobalEventManager.OnRunStart -= PlaySound;
+            RunStarter.OnRunStarted -= PlaySound;
             _audioSource.Play();
         }
     }

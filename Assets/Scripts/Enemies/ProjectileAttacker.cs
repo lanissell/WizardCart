@@ -1,11 +1,9 @@
-using System;
 using System.Collections;
-using Projectile_and_particle;
+using ProjectilesAndParticles;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
-namespace enemy
+namespace Enemies
 {
     public class ProjectileAttacker : MonoBehaviour
     {
@@ -13,8 +11,8 @@ namespace enemy
         [SerializeField]
         private Projectile _projectilePrefab;
         private Projectile _projectileObject;
-        [FormerlySerializedAs("_spawnPoint")] [SerializeField]
-        private Transform _projectileSpawnPoint;
+        [SerializeField]
+        private Transform _spawnPoint;
         
         [Header("Attack")]
         [SerializeField]
@@ -31,7 +29,7 @@ namespace enemy
         
         private void Start()
         {
-            GlobalEventManager.OnEnemyDie += DestroyAttacker;
+            Enemy.OnEnemyDied += DestroyAttacker;
             _animator = GetComponent<Animator>();
             _attackDist = Random.Range(_attackDist / 1.5f, _attackDist);
             _transform = transform;
@@ -40,10 +38,8 @@ namespace enemy
 
         private void Update()
         {
-            if (CheckAttackPossibility(Vector3.Distance(_transform.position, _targetPosition)))
-            {
-                Attack();
-            }
+            if (!CheckAttackPossibility(Vector3.Distance(_transform.position, _targetPosition))) return;
+            Attack();
         }
         
         private bool CheckAttackPossibility(float dist)
@@ -59,11 +55,10 @@ namespace enemy
             CreateProjectile();
             StartCoroutine(AttackDelay());
         }
-
-
+        
         private void CreateProjectile()
         {
-            _projectileObject = Instantiate(_projectilePrefab, _projectileSpawnPoint);
+            _projectileObject = Instantiate(_projectilePrefab, _spawnPoint);
             _projectileObject.SetAbilityToHitPlayer(true);
             _projectileObject.Parent = _transform;
         }
@@ -74,7 +69,6 @@ namespace enemy
             _isAttack = false;
         }
         
-
         private void ThrowProjectile() //used in animation event
         {
             _projectileObject.Throw(_targetPosition);
@@ -83,7 +77,7 @@ namespace enemy
         private void DestroyAttacker(Transform destroyTransform)
         {
             if (destroyTransform != _transform) return;
-            GlobalEventManager.OnEnemyDie -= DestroyAttacker;
+            Enemy.OnEnemyDied -= DestroyAttacker;
             Destroy(this);
         }
     }

@@ -16,7 +16,7 @@ namespace chunk
             _distanceDependence = Singleton<DistanceDependence>.Instance;
             _transform = transform;
             _movementDirection = -_transform.forward;
-            GlobalEventManager.OnRunStart += ActivateChunkMovement;
+            RunStarter.OnRunStarted += ActivateChunkMovement;
         }
         private void FixedUpdate()
         {
@@ -31,7 +31,7 @@ namespace chunk
 
         private void ActivateChunkMovement()
         {
-            GlobalEventManager.OnRunStart -= ActivateChunkMovement;
+            RunStarter.OnRunStarted -= ActivateChunkMovement;
             _chunkMoveDelegate = MoveChunk;
         }
 

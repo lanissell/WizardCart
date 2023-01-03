@@ -1,3 +1,4 @@
+using ProjectilesAndParticles;
 using UnityEngine;
 
 namespace Projectile_and_particle
@@ -13,7 +14,6 @@ namespace Projectile_and_particle
 
         private void Start()
         {
-            GlobalEventManager.OnEnemyDie += DestroyWithEffect;
             _particleSystem = GetComponent<ParticleSystem>();
             Destroy(Instantiate(_chargeEffect,transform), 3f);
         }

@@ -147,7 +147,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6303622399502131929}
   m_Layer: 0
-  m_Name: iceWizard
+  m_Name: IceWizard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1325,7 +1325,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectilePrefab: {fileID: 5618664981888268938, guid: 85c7d332deeb1b24da6fc248284d4680,
     type: 3}
-  _projectileSpawnPoint: {fileID: 3065665863756550664}
+  _spawnPoint: {fileID: 3065665863756550664}
   _attackDist: 20
   _attackDelay: 100
 --- !u!114 &3065665863269498974

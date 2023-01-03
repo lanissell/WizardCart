@@ -12,7 +12,7 @@ namespace enemy
         
         private void Start()
         {
-            GlobalEventManager.OnEnemyDie += ActivateRagdoll;
+            EnemyLimb.OnLimbCollideWithWeapon += ActivateRagdoll;
             _transform = transform;
             _animator = GetComponent<Animator>();
             foreach (EnemyLimb limb in _enemyLimbs)
@@ -20,7 +20,6 @@ namespace enemy
                 limb.Parent = _transform;
                 limb.Rigidbody.isKinematic = true;
             }
-            
         }
 
         private void ActivateRagdoll(Transform diedTransform)
@@ -33,7 +32,7 @@ namespace enemy
                 Destroy(limb);
             }
             Destroy(this);
-            GlobalEventManager.OnEnemyDie -= ActivateRagdoll;
+            EnemyLimb.OnLimbCollideWithWeapon -= ActivateRagdoll;
         }
 
     }

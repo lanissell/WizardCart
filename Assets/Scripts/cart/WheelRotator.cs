@@ -15,7 +15,7 @@ namespace cart
         private void Start()
         {
             _wheelsModels = _wheelsModelParent.GetComponentsInChildren<Transform>();
-            GlobalEventManager.OnRunStart += ActivateRotation;
+            RunStarter.OnRunStarted += ActivateRotation;
         }
 
         private void Update()
@@ -31,7 +31,7 @@ namespace cart
 
         private void ActivateRotation()
         {
-            GlobalEventManager.OnRunStart -= ActivateRotation;
+            RunStarter.OnRunStarted -= ActivateRotation;
             _rotateWheel = RotateWheel;
         }
 
