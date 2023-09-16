@@ -106,6 +106,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1159055775010405739}
+  - component: {fileID: 4965828946862354359}
   m_Layer: 0
   m_Name: ForestChank3
   m_TagString: Untagged
@@ -125,12 +126,27 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3854967494363904223}
   - {fileID: 6531897906799706940}
+  - {fileID: 3854967494363904223}
   - {fileID: 9210486635556451084}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4965828946862354359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1159055775010405740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8eb6ca78f35945458d0d0bf6df581ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  begin: {fileID: 6531897906799706940}
+  end: {fileID: 3854967494363904223}
+  rotationPoint: {fileID: 9210486635556451084}
 --- !u!1 &2190619614088344733
 GameObject:
   m_ObjectHideFlags: 0
