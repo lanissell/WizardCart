@@ -25,26 +25,9 @@ public class Chunk : MonoBehaviour
     /// </summary>
     public Transform End => end;
 
-    [Header("Plates")]
+    [NonReorderable]
     [SerializeField]
-    private GameObject[] plates;
-
-    [SerializeField]
-    private GameObject activePlate;
-
-    [Header("Borders")]
-    [SerializeField]
-    private GameObject[] borders;
-
-    [SerializeField]
-    private GameObject activeBorder;
-
-    [Header("Filling")]
-    [SerializeField]
-    private GameObject[] fillings;
-
-    [SerializeField]
-    private GameObject activeFilling;
+    private ChunkPart[] parts;
 
     private bool isFlipped;
 
@@ -58,13 +41,10 @@ public class Chunk : MonoBehaviour
             Flip();
         }
 
-        activePlate.SetActive(false);
-        activeBorder.SetActive(false);
-        activeFilling.SetActive(false);
-
-        activePlate = ActivateRandomVariant(plates);
-        activeBorder = ActivateRandomVariant(borders);
-        activeFilling = ActivateRandomVariant(fillings);
+        foreach (var part in parts)
+        {
+            part.ActivateRandomVariant();
+        }
     }
 
     /// <summary>
@@ -85,13 +65,32 @@ public class Chunk : MonoBehaviour
 
         (end, begin) = (begin, end);
     }
+}
 
-    private GameObject ActivateRandomVariant(GameObject[] variants)
+/// <summary>
+/// Chunk part with different variants.
+/// </summary>
+[Serializable]
+public class ChunkPart
+{
+    [SerializeField]
+    private GameObject activeVariant;
+
+    [NonReorderable]
+    [SerializeField]
+    private GameObject[] variants;
+
+    /// <summary>
+    /// Choose random variant of chunk part.
+    /// </summary>
+    public void ActivateRandomVariant()
     {
+        activeVariant.SetActive(false);
+
         var variant = variants[Random.Range(0, variants.Length)];
 
         variant.SetActive(true);
 
-        return variant;
+        activeVariant = variant;
     }
 }
