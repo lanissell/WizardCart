@@ -98,7 +98,7 @@ public class PhysicsSimulation : MonoBehaviour
 
         int i = 0;
         foreach (Transform child in transforms)
-        {            
+        {
             if (!child.TryGetComponent(out Rigidbody rb))
             {
                 rb = child.gameObject.AddComponent<Rigidbody>();

@@ -125,7 +125,7 @@ namespace Krearthur.GOP
             if (Mathf.Abs(radiusA) < 0.05f || Mathf.Abs(radiusB) < 0.05f) return null;
 
             Vector3 center = startWithOffset + diagonal * 0.5f;
- 
+
             float totalPolyLineLength = CalculateEllipsesAndCircumference(center, radiusA, radiusB);
 
             // -- Calculate steps based on total arc length divided by object dimension
@@ -184,7 +184,7 @@ namespace Krearthur.GOP
             {
                 segmentFactory.MassProduceOrUpdate(positions);
             }
-            
+
             return segmentFactory.GetAt(0);
         }
 

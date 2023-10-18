@@ -162,7 +162,7 @@ namespace Krearthur.GOP
                         deltaWidth = Mathf.RoundToInt((signWidth * (width)) / dividerWidth) * col;
                         deltaHeight = Mathf.RoundToInt((signHeight * (height)) / dividerHeight) * row;
                     }
-                    
+
                     if (axis == GOPainter.CanvasAxis.Y)
                     {
                         pos.x += deltaWidth;

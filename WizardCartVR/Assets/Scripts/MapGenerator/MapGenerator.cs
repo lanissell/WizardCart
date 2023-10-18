@@ -71,7 +71,6 @@ public class MapGenerator : MonoBehaviour
             return;
         }
 
-        newChunk.Initialize();
         newChunk.transform.localPosition = beginPosition - newChunk.Begin.localPosition;
 
         if (Mathf.Round(Random.Range(0.0f, 1.0f)) > 0)
@@ -91,6 +90,7 @@ public class MapGenerator : MonoBehaviour
     private void OnChunkGot(Chunk chunk)
     {
         chunk.gameObject.SetActive(true);
+        chunk.Initialize();
     }
 
     private void OnChunkReleased(Chunk chunk)
